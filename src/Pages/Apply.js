@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Formik, Form } from "formik";
+import React from "react";
+import { Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
@@ -63,13 +63,6 @@ const Apply = () => {
     { value: "option1", label: "N351,000 - N500,000" },
     { value: "option1", label: "N501,000 & above" },
   ];
-
-  const [termsAccepted, setTermsAccepted] = useState(false);
-
-  const handleTermsChange = (isChecked) => {
-    setTermsAccepted(isChecked);
-  };
-
 
   return (
     <div>
@@ -168,9 +161,13 @@ const Apply = () => {
           ),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          setSubmitting(false);
           console.log(values); // Handle form submission here
-          resetForm(); // clear form after submission
+          if (values.acceptTerms) {
+            setSubmitting(false);
+            resetForm(); // Clear form after submission if terms accepted
+          } else {
+            setSubmitting(false);
+          }
         }}
       >
         {(
@@ -450,9 +447,9 @@ const Apply = () => {
             </div>
             <AcceptTerms
               name="acceptTerms"
-              checked={termsAccepted}
-              onChange={handleTermsChange}
+              className="mr-2"
             />
+
             <div className="flex justify-center">
               <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
                 <button
