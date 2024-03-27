@@ -1,7 +1,7 @@
 import React from "react";
-import hero from "../assets/hero.png";
 import Slider from "../Components/slider";
 import { Link } from "react-router-dom";
+import ImagesSlider from "../Components/ImagesSlider";
 
 const Hero = () => {
   return (
@@ -20,7 +20,8 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-full mt-8 md:w-fit">
-        <img src={hero} alt="" className="w-full h-auto" />
+        {/* <img src={hero} alt="" className="w-full h-auto" /> */}
+        <ImagesSlider />
       </div>
     </div>
   );
