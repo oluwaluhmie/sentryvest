@@ -60,7 +60,7 @@ const TermsModal = ({ isOpen, onClose }) => {
           </p>
         </div>
       </div>
-      <button onClick={onClose} className="bg-homeColor text-white border rounded-xl border-solid py-2 px-4 hover:bg-buttonColor">Close</button>
+      <button onClick={onClose} className="bg-homeColor text-white border rounded-xl border-solid py-2 px-4 mt-2 hover:bg-buttonColor">Close</button>
     </Modal>
   );
 };
