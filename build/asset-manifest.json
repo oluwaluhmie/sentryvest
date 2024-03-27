@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f723e734.css",
+    "main.js": "/static/js/main.cec45c7a.js",
+    "static/js/787.9eb0e1d9.chunk.js": "/static/js/787.9eb0e1d9.chunk.js",
+    "static/media/investment.png": "/static/media/investment.3175ee3dd0f588a7b6d7.png",
+    "static/media/groupsavings.png": "/static/media/groupsavings.5ef2960a4fba630497d0.png",
+    "static/media/fixedinvestment.png": "/static/media/fixedinvestment.7f6a3a5ce6ca5cca8e0a.png",
+    "static/media/automatedsavings.png": "/static/media/automatedsavings.a1420ef1c90e43c1b7f6.png",
+    "static/media/goaloriented.png": "/static/media/goaloriented.257f1dcc0da60c883e82.png",
+    "static/media/businessloan.png": "/static/media/businessloan.13535b74cbb4bae8b38b.png",
+    "static/media/personaloan.png": "/static/media/personaloan.cfa9750af2d0e860fb84.png",
+    "static/media/hero.png": "/static/media/hero.eb79d777ce56c9918ace.png",
+    "static/media/about.png": "/static/media/about.f8dcc6295c26d4fe358e.png",
+    "static/media/SentryVestWhite.png": "/static/media/SentryVestWhite.2b7585ce38810b246c61.png",
+    "static/media/instagram.svg": "/static/media/instagram.d6121f7fb7a5ea9a314992f4fb5c7cda.svg",
+    "static/media/phone.svg": "/static/media/phone.6e458a5b3579411a0d17587ac986c7a0.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.2cc67e19ecd7c3585077b34dec479028.svg",
+    "static/media/facebook.svg": "/static/media/facebook.bb31ba6a7f9cdd7c209d9aaa07f823c3.svg",
+    "index.html": "/index.html",
+    "static/media/close.svg": "/static/media/close.53c9f4b6ba9fca553d1eb9cda88a11af.svg",
+    "static/media/menu.svg": "/static/media/menu.501536c55a38d36dc4a10489c8310a05.svg",
+    "main.f723e734.css.map": "/static/css/main.f723e734.css.map",
+    "main.cec45c7a.js.map": "/static/js/main.cec45c7a.js.map",
+    "787.9eb0e1d9.chunk.js.map": "/static/js/787.9eb0e1d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f723e734.css",
+    "static/js/main.cec45c7a.js"
+  ]
+}
