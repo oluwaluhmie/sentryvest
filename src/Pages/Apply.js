@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import InputWithLabel from "../Components/inputWithLabel";
 import InputWithDropdown from "../Components/InputWithDropdown";
-import AcceptTerms from "../Components/AcceptTerms";
+import { Link } from "react-router-dom";
 
 const Apply = () => {
   const loanDuration = [
@@ -48,28 +48,12 @@ const Apply = () => {
     { value: "option1", label: "In a Relationship" },
   ];
 
-  const employmentStatus = [
-    { value: "option1", label: "Employed" },
-    { value: "option1", label: "Self Employed" },
-    { value: "option1", label: "Unemployed" },
-    { value: "option1", label: "Student" },
-    { value: "option1", label: "Pensioner" },
-    { value: "option1", label: "Retired" },
-  ];
-
-  const monthlyIncome = [
-    { value: "option1", label: "N50,000 - N250,000" },
-    { value: "option1", label: "N251,000 - N350,000" },
-    { value: "option1", label: "N351,000 - N500,000" },
-    { value: "option1", label: "N501,000 & above" },
-  ];
-
   return (
     <div>
       <Navbar />
       <div className="px-4 py-6 pt-20 text-center md:px-10 md:py-10 md:pt-20">
         <h1 className="font-bold text-3xl md:text-4xl">
-          Fill out an application form with your correct details
+          Fill our application form with your correct details
         </h1>
       </div>
       <Formik
@@ -84,21 +68,6 @@ const Apply = () => {
           maritalStatus: "",
           dob: "",
           soo: "",
-          email: "",
-          phoneNumber: "",
-          address: "",
-          city: "",
-          state: "",
-          lgt: "",
-          employmentStatus: "",
-          companyStatus: "",
-          monthlyIncome: "",
-          fullName: "",
-          nPhoneNumber: "",
-          nEmail: "",
-          nOccupation: "",
-          nRelationship: "",
-          acceptedTerms: false,
         }}
         validationSchema={Yup.object({
           loanAmount: Yup.number()
@@ -129,36 +98,6 @@ const Apply = () => {
               }
             ),
           soo: Yup.string().required("State of Origin is required"),
-          email: Yup.string()
-            .email("Invalid email address")
-            .required("Email is required"),
-          phoneNumber: Yup.string()
-            .matches(/^\d{11}$/, "Phone number must be exactly 11 digits")
-            .required("Phone number is required"),
-          address: Yup.string().required("Address is required"),
-          city: Yup.string().required("City is required"),
-          state: Yup.string().required("State is required"),
-          lgt: Yup.string().required("State is required"),
-          employmentStatus: Yup.string().required("Please select an option"),
-          companyStatus: Yup.string().required("Company Status is required"),
-          monthlyIncome: Yup.string().required("Please select an option"),
-          fullName: Yup.string().required("Next of kin Full name is required"),
-          nPhoneNumber: Yup.string()
-            .matches(/^\d{11}$/, "Phone number must be exactly 11 digits")
-            .required("Next of kin Phone number is required"),
-          nEmail: Yup.string()
-            .email("Invalid email address")
-            .required("Next of kin Email is required"),
-          nOccupation: Yup.string().required(
-            "Next of kin Occupation is required"
-          ),
-          nRelationship: Yup.string().required(
-            "Relationship with next of kin is required"
-          ),
-          acceptTerms: Yup.boolean().oneOf(
-            [true],
-            "You must accept the terms and conditions"
-          ),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           console.log(values); // Handle form submission here
@@ -291,174 +230,13 @@ const Apply = () => {
                 inputError={errors.soo}
               />
             </div>
-            <span className="font-bold text-lg text-homeColor">
-              Contact Details
-            </span>
-            <hr />
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <InputWithLabel
-                labelName="Phone Number"
-                inputType="text"
-                inputName="phoneNumber"
-                placeholder="Phone Number"
-                inputValue={values.phoneNumber}
-                inputOnChange={handleChange}
-                inputError={errors.phoneNumber}
-              />
-              <InputWithLabel
-                labelName="Email"
-                inputType="email"
-                inputName="email"
-                placeholder="Email Address"
-                inputValue={values.email}
-                inputOnChange={handleChange}
-                inputError={errors.email}
-              />
-              <InputWithLabel
-                labelName="Address"
-                inputType="text"
-                inputName="address"
-                placeholder="Address"
-                inputValue={values.address}
-                inputOnChange={handleChange}
-                inputError={errors.address}
-              />
-              <InputWithLabel
-                labelName="City"
-                inputType="text"
-                inputName="city"
-                placeholder="City"
-                inputValue={values.city}
-                inputOnChange={handleChange}
-                inputError={errors.city}
-              />
-              <InputWithLabel
-                labelName="State"
-                inputType="text"
-                inputName="state"
-                placeholder="State"
-                inputValue={values.state}
-                inputOnChange={handleChange}
-                inputError={errors.state}
-              />
-              <InputWithLabel
-                labelName="Local Government"
-                inputType="text"
-                inputName="lgt"
-                placeholder="Local Government"
-                inputValue={values.lgt}
-                inputOnChange={handleChange}
-                inputError={errors.lgt}
-              />
-            </div>
-            <span className="font-bold text-lg text-homeColor">
-              Work Status
-            </span>
-            <hr />
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <InputWithDropdown
-                labelName="Employment Status"
-                options={employmentStatus}
-                selectedValue={values.employmentStatus}
-                onChange={(event) => {
-                  handleChange({
-                    target: {
-                      name: "employmentStatus",
-                      value: event.target.value,
-                    },
-                  });
-                }}
-                inputError={errors.employmentStatus}
-              />
-              <InputWithLabel
-                labelName="Company Status"
-                inputType="text"
-                inputName="companyStatus"
-                placeholder="Company Status"
-                inputValue={values.companyStatus}
-                inputOnChange={handleChange}
-                inputError={errors.companyStatus}
-              />
-              <InputWithDropdown
-                labelName="Monthly Income"
-                options={monthlyIncome}
-                selectedValue={values.monthlyIncome}
-                onChange={(event) => {
-                  handleChange({
-                    target: {
-                      name: "monthlyIncome",
-                      value: event.target.value,
-                    },
-                  });
-                }}
-                inputError={errors.monthlyIncome}
-              />
-            </div>
-            <span className="font-bold text-lg text-homeColor">
-              Next of Kin Information
-            </span>
-            <hr />
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              <InputWithLabel
-                labelName="Full name"
-                inputType="text"
-                inputName="fullName"
-                placeholder="Full Name"
-                inputValue={values.fullName}
-                inputOnChange={handleChange}
-                inputError={errors.fullName}
-              />
-              <InputWithLabel
-                labelName="Phone Number"
-                inputType="text"
-                inputName="nPhoneNumber"
-                placeholder="Phone Number"
-                inputValue={values.nPhoneNumber}
-                inputOnChange={handleChange}
-                inputError={errors.nPhoneNumber}
-              />
-              <InputWithLabel
-                labelName="Email"
-                inputType="email"
-                inputName="nEmail"
-                placeholder="Email Address"
-                inputValue={values.nEmail}
-                inputOnChange={handleChange}
-                inputError={errors.nEmail}
-              />
-              <InputWithLabel
-                labelName="Occupation"
-                inputType="text"
-                inputName="nOccupation"
-                placeholder="Occupation"
-                inputValue={values.nOccupation}
-                inputOnChange={handleChange}
-                inputError={errors.nOccupation}
-              />
-              <InputWithLabel
-                labelName="Relationship"
-                inputType="text"
-                inputName="nRelationship"
-                placeholder="Relationship"
-                inputValue={values.nRelationship}
-                inputOnChange={handleChange}
-                inputError={errors.nRelationship}
-              />
-            </div>
-            <AcceptTerms
-              name="acceptTerms"
-              className="mr-2"
-            />
-
             <div className="flex justify-center">
               <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="py-3 px-8 font-DMsans text-base uppercase md:text-xl"
-                >
-                  Submit
-                </button>
+              <Link to={"/apply1"}>
+                  <button className="py-3 px-8 font-DMsans text-base uppercase md:text-xl">
+                    Next
+                  </button>
+                </Link>
               </div>
             </div>
           </Form>

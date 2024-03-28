@@ -8,6 +8,8 @@ import Services from "./Pages/Services";
 import Works from "./Pages/Works";
 import ScrollToTop from "./Components/scrollToTop";
 import Apply from "./Pages/Apply";
+import ApplyContactDetails from "./Pages/ApplyContactDetails";
+import ApplyWorkStatus from "./Pages/ApplyWorkStatus";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           }
         />
         <Route path="/apply" element={<Apply />} />
+        <Route path="/apply1" element={<ApplyContactDetails />} />
+        <Route path="/apply2" element={<ApplyWorkStatus />} />
       </Routes>
     </BrowserRouter>
   );
