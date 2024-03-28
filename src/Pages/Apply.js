@@ -52,7 +52,6 @@ const Apply = () => {
         }}
         validationSchema={Yup.object({
           loanAmount: Yup.number()
-            .typeError("Loan amount must be a number")
             .required("Loan amount is required")
             .positive("Loan amount must be a positive number"),
           loanDuration: Yup.string().required("Please select an option"),
@@ -60,12 +59,10 @@ const Apply = () => {
         })}
         onSubmit={(values, { resetForm }) => {
           console.log(values); // Handle form submission here
-          resetForm(); // Clear form after submission if terms accepted
+          resetForm(); // Clear form after submission
         }}
       >
-        {(
-          { values, errors, handleChange, setFieldValue, isSubmitting } // Receive handleChange from Formik context
-        ) => (
+        {({ values, errors, handleChange }) => (
           <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:py-8 md:px-10">
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <InputWithLabel
@@ -107,21 +104,22 @@ const Apply = () => {
               />
             </div>
             <div className="flex justify-center">
-              <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
-                <Link to={"/apply1"}>
-                  <button
-                    type="submit"
-                    className="py-3 px-8 font-DMsans text-base uppercase md:text-xl"
-                  >
-                    Next
-                  </button>
-                </Link>
-              </div>
+              <Link to={"/apply1"}>
+                <button
+                  type="submit"
+                  disabled={
+                    Object.keys(errors).length !== 0 ||
+                    Object.values(values).some((value) => value === "")
+                  }
+                  className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white py-2 px-6 font-DMsans text-base md:text-xl"
+                >
+                  Next
+                </button>
+              </Link>
             </div>
           </Form>
         )}
       </Formik>
-
       <Footer />
     </div>
   );

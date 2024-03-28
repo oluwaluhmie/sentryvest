@@ -64,14 +64,12 @@ const ApplyPersonal = () => {
             ),
           soo: Yup.string().required("State of Origin is required"),
         })}
-        // onSubmit={(values, { resetForm }) => {
-        //   console.log(values); // Handle form submission here
-        //   resetForm(); // clear form after submission
-        // }}
+        onSubmit={(values, { resetForm }) => {
+          console.log(values); // Handle form submission here
+          resetForm(); // clear form after submission
+        }}
       >
-        {(
-          { values, errors, handleChange, setFieldValue } // Receive handleChange from Formik context
-        ) => (
+        {({ values, errors, handleChange }) => (
           <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:py-8 md:px-10">
             <span className="font-bold text-lg text-homeColor">
               Personal Information
@@ -152,16 +150,18 @@ const ApplyPersonal = () => {
               />
             </div>
             <div className="flex justify-center">
-              <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
-                <Link to={"/apply2"}>
-                  <button
-                    type="submit"
-                    className="py-3 px-8 font-DMsans text-base uppercase md:text-xl"
-                  >
-                    Next
-                  </button>
-                </Link>
-              </div>
+              <Link to={"/apply2"}>
+                <button
+                  type="submit"
+                  disabled={
+                    Object.keys(errors).length !== 0 ||
+                    Object.values(values).some((value) => value === "")
+                  }
+                  className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white py-2 px-6 font-DMsans text-base md:text-xl"
+                >
+                  Next
+                </button>
+              </Link>
             </div>
           </Form>
         )}

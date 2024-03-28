@@ -10,8 +10,12 @@ const ApplyContactDetails = () => {
   return (
     <div>
       <Navbar />
-      <div className="px-4 py-6 pt-20 text-center md:px-10 md:py-10 md:pt-12">
-        {" "}
+      <div className="px-4 py-6 pt-20 md:px-10 md:py-10 md:pt-20">
+        <Link to="/apply1">
+          <button className="bg-homeColor text-white border rounded-xl border-solid py-2 px-4 mt-2 hover:bg-buttonColor">
+            Back
+          </button>
+        </Link>
       </div>
       <Formik
         initialValues={{
@@ -109,13 +113,18 @@ const ApplyContactDetails = () => {
               />
             </div>
             <div className="flex justify-center">
-              <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
-                <Link to={"/apply3"}>
-                  <button className="py-3 px-8 font-DMsans text-base uppercase md:text-xl">
-                    Next
-                  </button>
-                </Link>
-              </div>
+              <Link to={"/apply3"}>
+                <button
+                  type="submit"
+                  disabled={
+                    Object.keys(errors).length !== 0 ||
+                    Object.values(values).some((value) => value === "")
+                  }
+                  className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white py-2 px-6 font-DMsans text-base md:text-xl"
+                >
+                  Next
+                </button>
+              </Link>
             </div>
           </Form>
         )}

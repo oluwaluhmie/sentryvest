@@ -4,15 +4,19 @@ import * as Yup from "yup";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import InputWithLabel from "../Components/inputWithLabel";
-import InputWithDropdown from "../Components/InputWithDropdown";
 import AcceptTerms from "../Components/AcceptTerms";
+import { Link } from "react-router-dom";
 
 const ApplyNext = () => {
   return (
     <div>
       <Navbar />
-      <div className="px-4 py-6 pt-20 text-center md:px-10 md:py-10 md:pt-12">
-        <h1 className="font-bold text-3xl md:text-4xl"> </h1>
+      <div className="px-4 py-6 pt-20 md:px-10 md:py-10 md:pt-20">
+        <Link to="/apply3">
+          <button className="bg-homeColor text-white border rounded-xl border-solid py-2 px-4 mt-2 hover:bg-buttonColor">
+            Back
+          </button>
+        </Link>
       </div>
       <Formik
         initialValues={{
@@ -44,16 +48,12 @@ const ApplyNext = () => {
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
           console.log(values); // Handle form submission here
-          if (values.acceptTerms) {
-            setSubmitting(false);
-            resetForm(); // Clear form after submission if terms accepted
-          } else {
-            setSubmitting(false);
-          }
+          setSubmitting(false);
+          resetForm();
         }}
       >
         {(
-          { values, errors, handleChange, setFieldValue, isSubmitting } // Receive handleChange from Formik context
+          { values, errors, handleChange, isSubmitting } // Receive handleChange from Formik context
         ) => (
           <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:py-8 md:px-10">
             <span className="font-bold text-lg text-homeColor">
@@ -108,17 +108,14 @@ const ApplyNext = () => {
               />
             </div>
             <AcceptTerms name="acceptTerms" className="mr-2" />
-
             <div className="flex justify-center">
-              <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="py-3 px-8 font-DMsans text-base uppercase md:text-xl"
-                >
-                  Submit
-                </button>
-              </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white py-2 px-6 font-DMsans text-base uppercase md:text-xl"
+              >
+                Submit
+              </button>
             </div>
           </Form>
         )}
