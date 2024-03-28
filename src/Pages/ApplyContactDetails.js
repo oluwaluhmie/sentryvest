@@ -110,7 +110,7 @@ const ApplyContactDetails = () => {
             </div>
             <div className="flex justify-center">
               <div className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white">
-                <Link to={"/apply2"}>
+                <Link to={"/apply3"}>
                   <button className="py-3 px-8 font-DMsans text-base uppercase md:text-xl">
                     Next
                   </button>

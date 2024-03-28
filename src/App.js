@@ -10,6 +10,7 @@ import ScrollToTop from "./Components/scrollToTop";
 import Apply from "./Pages/Apply";
 import ApplyContactDetails from "./Pages/ApplyContactDetails";
 import ApplyWorkStatus from "./Pages/ApplyWorkStatus";
+import ApplyPersonal from "./Pages/ApplyPersonal";
 
 function App() {
   return (
@@ -30,8 +31,9 @@ function App() {
           }
         />
         <Route path="/apply" element={<Apply />} />
-        <Route path="/apply1" element={<ApplyContactDetails />} />
-        <Route path="/apply2" element={<ApplyWorkStatus />} />
+        <Route path="/apply1" element={<ApplyPersonal />} />
+        <Route path="/apply2" element={<ApplyContactDetails />} />
+        <Route path="/apply3" element={<ApplyWorkStatus />} />
       </Routes>
     </BrowserRouter>
   );
