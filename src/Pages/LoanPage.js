@@ -102,10 +102,12 @@ const LoanPage = () => {
   ];
 
   const handleNext = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
     setActiveSection(activeSection + 1);
   };
 
   const handleBack = () => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
     setActiveSection(activeSection - 1);
   };
 
