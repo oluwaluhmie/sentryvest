@@ -203,7 +203,7 @@ const InvestmentPage = () => {
               onChange={handleCheckboxChange} // Pass the handleCheckboxChange function
             />
           )}
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between mt-24">
             {activeSection !== 0 && (
               <button
                 onClick={handleBack}

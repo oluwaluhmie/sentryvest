@@ -50,7 +50,7 @@ const Investment = ({ formData, onFormChange }) => {
         }}
       >
         {({ values, errors, handleChange }) => (
-          <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:px-10">
+          <Form className="flex flex-col justify-end px-4 py-4 md:px-10">
             <span className="text-base font-bold text-homeColor pb-2 md:hidden">
               Investment Details
             </span>
