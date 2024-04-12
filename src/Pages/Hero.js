@@ -12,7 +12,7 @@ const Hero = () => {
       <div className="flex flex-col items-center gap-8 w-full md:items-start md:w-1/2">
         <Slider />
         <div className="flex justify-center bg-white text-homeColor items-center rounded-xl border-2 border-solid border-buttonColor px-5 py-3 md:ml-12 hover:bg-buttonColor hover:text-white">
-          <Link to={"/apply"}>
+          <Link to={"/loan"}>
             <button className="font-DMsans text-base font-medium">
               Get started
             </button>
