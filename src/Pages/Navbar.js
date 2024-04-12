@@ -55,7 +55,7 @@ const Navbar = () => {
             <div className="hidden md:block font-DMsans">
               <Link
                 to="/"
-                className="text-lg font-normal text-homeColor mr-6 hover:text-white hover:p-4 hover:border hover:rounded-xl hover:bg-buttonColor"
+                className="text-lg font-normal text-homeColor mr-6 hover:text-white hover:p-3 hover:border hover:rounded-xl hover:bg-buttonColor"
                 onClick={() => scrollToSection("heroSection")}
               >
                 Home
@@ -69,14 +69,14 @@ const Navbar = () => {
               </Link>
               <Link
                 to="/"
-                className="text-lg font-normal text-homeColor mr-6 hover:text-white hover:p-4 hover:border hover:rounded-xl hover:bg-buttonColor"
+                className="text-lg font-normal text-homeColor mr-6 hover:text-buttonColor"
                 onClick={() => scrollToSection("workSection")}
               >
                 How we work?
               </Link>
               <Link
                 to="/"
-                className="text-lg font-normal text-homeColor mr-6 hover:text-white hover:p-4 hover:border hover:rounded-xl hover:bg-buttonColor"
+                className="text-lg font-normal text-homeColor mr-6 hover:text-white hover:p-3 hover:border hover:rounded-xl hover:bg-buttonColor"
                 onClick={() => scrollToSection("aboutSection")}
               >
                 About us
@@ -111,7 +111,7 @@ const Navbar = () => {
         <div className="flex flex-col justify-center items-center h-full font-DMsans">
           <Link
             to="/"
-            className="text-lg font-normal text-homeColor mb-6 hover:text-white hover:px-20 hover:py-4 hover:border hover:rounded-xl hover:bg-buttonColor"
+            className="text-lg font-normal text-homeColor mb-6 hover:text-white hover:px-20 hover:py-3 hover:border hover:rounded-xl hover:bg-buttonColor"
             onClick={() => {
               scrollToSection("heroSection");
               setIsMenuOpen(false);
