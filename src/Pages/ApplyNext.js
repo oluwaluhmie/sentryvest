@@ -29,7 +29,7 @@ const ApplyNext = ({ formData, onFormChange }) => {
         }}
       >
         {({ values, errors, handleChange, isSubmitting }) => (
-          <Form className="flex flex-col justify-end px-4 py-4 md:px-10">
+          <Form className="flex flex-col justify-end px-4 py-4 mt-11 md:px-10">
             <span className="text-base font-bold text-homeColor pb-2 md:hidden">
               Next of Kin Details
             </span>
