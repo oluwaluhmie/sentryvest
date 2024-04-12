@@ -1,31 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
 import InputWithLabel from "../Components/inputWithLabel";
-import { Link } from "react-router-dom";
 
-const ApplyContactDetails = () => {
+const ApplyContactDetails = ({ formData, onFormChange }) => {
   return (
     <div>
-      <Navbar />
-      <div className="px-4 py-6 pt-20 md:px-10 md:py-10 md:pt-20">
-        <Link to="/apply1">
-          <button className="bg-homeColor text-white border rounded-xl border-solid py-2 px-4 mt-2 hover:bg-buttonColor">
-            Back
-          </button>
-        </Link>
-      </div>
       <Formik
-        initialValues={{
-          email: "",
-          phoneNumber: "",
-          address: "",
-          city: "",
-          state: "",
-          lgt: "",
-        }}
+        initialValues={formData}
         validationSchema={Yup.object({
           email: Yup.string()
             .email("Invalid email address")
@@ -38,32 +20,24 @@ const ApplyContactDetails = () => {
           state: Yup.string().required("State is required"),
           lgt: Yup.string().required("State is required"),
         })}
-        onSubmit={(values, { setSubmitting, resetForm }) => {
+        onSubmit={(values, { resetForm }) => {
           console.log(values); // Handle form submission here
-          if (values.acceptTerms) {
-            setSubmitting(false);
-            resetForm(); // Clear form after submission if terms accepted
-          } else {
-            setSubmitting(false);
-          }
+          resetForm(); // Clear form after submission
         }}
       >
-        {(
-          { values, errors, handleChange, setFieldValue, isSubmitting } // Receive handleChange from Formik context
-        ) => (
-          <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:py-8 md:px-10">
-            <span className="font-bold text-lg text-homeColor">
-              Contact Details
-            </span>
-            <hr />
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {({ values, errors, handleChange }) => (
+          <Form className="flex flex-col justify-end px-4 py-4 md:px-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <InputWithLabel
                 labelName="Phone Number"
                 inputType="text"
                 inputName="phoneNumber"
                 placeholder="Phone Number"
                 inputValue={values.phoneNumber}
-                inputOnChange={handleChange}
+                inputOnChange={(event) => {
+                  handleChange(event);
+                  onFormChange({ phoneNumber: event.target.value });
+                }}
                 inputError={errors.phoneNumber}
               />
               <InputWithLabel
@@ -72,7 +46,10 @@ const ApplyContactDetails = () => {
                 inputName="email"
                 placeholder="Email Address"
                 inputValue={values.email}
-                inputOnChange={handleChange}
+                inputOnChange={(event) => {
+                  handleChange(event);
+                  onFormChange({ email: event.target.value });
+                }}
                 inputError={errors.email}
               />
               <InputWithLabel
@@ -81,7 +58,10 @@ const ApplyContactDetails = () => {
                 inputName="address"
                 placeholder="Address"
                 inputValue={values.address}
-                inputOnChange={handleChange}
+                inputOnChange={(event) => {
+                  handleChange(event);
+                  onFormChange({ address: event.target.value });
+                }}
                 inputError={errors.address}
               />
               <InputWithLabel
@@ -90,7 +70,10 @@ const ApplyContactDetails = () => {
                 inputName="city"
                 placeholder="City"
                 inputValue={values.city}
-                inputOnChange={handleChange}
+                inputOnChange={(event) => {
+                  handleChange(event);
+                  onFormChange({ city: event.target.value });
+                }}
                 inputError={errors.city}
               />
               <InputWithLabel
@@ -99,7 +82,10 @@ const ApplyContactDetails = () => {
                 inputName="state"
                 placeholder="State"
                 inputValue={values.state}
-                inputOnChange={handleChange}
+                inputOnChange={(event) => {
+                  handleChange(event);
+                  onFormChange({ state: event.target.value });
+                }}
                 inputError={errors.state}
               />
               <InputWithLabel
@@ -108,29 +94,16 @@ const ApplyContactDetails = () => {
                 inputName="lgt"
                 placeholder="Local Government"
                 inputValue={values.lgt}
-                inputOnChange={handleChange}
+                inputOnChange={(event) => {
+                  handleChange(event);
+                  onFormChange({ lgt: event.target.value });
+                }}
                 inputError={errors.lgt}
               />
-            </div>
-            <div className="flex justify-center">
-              <Link to={"/apply3"}>
-                <button
-                  type="submit"
-                  disabled={
-                    Object.keys(errors).length !== 0 ||
-                    Object.values(values).some((value) => value === "")
-                  }
-                  className="border rounded-xl bg-buttonColor text-white hover:bg-homeColor hover:text-white py-2 px-6 font-DMsans text-base md:text-xl"
-                >
-                  Next
-                </button>
-              </Link>
             </div>
           </Form>
         )}
       </Formik>
-
-      <Footer />
     </div>
   );
 };

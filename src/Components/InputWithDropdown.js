@@ -1,15 +1,9 @@
 import React from "react";
 
-const InputWithDropdown = ({
-  labelName,
-  options,
-  selectedValue,
-  onChange,
-  inputError,
-}) => {
+const InputWithDropdown = ({ labelName, options, selectedValue, onChange, inputError }) => {
   return (
-    <div className="grid">
-      <span className="text-base font-bold text-homeColor pb-1">{labelName}:</span>
+    <div className="flex flex-col">
+      <label className="font-bold">{labelName}</label>
       <select
         value={selectedValue}
         onChange={onChange}
@@ -22,9 +16,10 @@ const InputWithDropdown = ({
           </option>
         ))}
       </select>
-      <code className="text-red-500 text-xs">{inputError}</code>
+      {inputError && <p className="text-red-500 text-xs">{inputError}</p>}
     </div>
   );
 };
 
 export default InputWithDropdown;
+

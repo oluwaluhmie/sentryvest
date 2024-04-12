@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { useField } from "formik";
 import TermsModal from "./TermsModal";
 
-const AcceptTerms = ({ label, ...props }) => {
-  const [field, meta] = useField(props);
+const AcceptTerms = ({ formData, label, checked, onChange }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -15,18 +13,19 @@ const AcceptTerms = ({ label, ...props }) => {
   };
 
   const handleCheckboxClick = (e) => {
-    // Prevent event propagation to avoid triggering other input boxes
-    e.stopPropagation();
+    const newValue = e.target.checked;
+    onChange(newValue); // Invoke the onChange callback
   };
+  
 
   return (
     <div>
       <label>
         <input
           type="checkbox"
-          {...field}
-          {...props}
+          checked={checked}
           onClick={handleCheckboxClick}
+          className="mr-2 mt-6"
         />
         {label}
         {"I accept the "}
@@ -37,11 +36,9 @@ const AcceptTerms = ({ label, ...props }) => {
           Terms and Conditions
         </span>
       </label>
-      {meta.touched && meta.error ? (
-        <div className="error">{meta.error}</div>
-      ) : null}
-
+      {/* You can implement the modal here */}
       <TermsModal isOpen={modalOpen} onClose={closeModal} />
+      {/* {modalOpen && <TermsModal onClose={closeModal} />} */}
     </div>
   );
 };

@@ -7,35 +7,31 @@ import Navbar from "./Pages/Navbar";
 import Services from "./Pages/Services";
 import Works from "./Pages/Works";
 import ScrollToTop from "./Components/scrollToTop";
-import Apply from "./Pages/Apply";
-import ApplyContactDetails from "./Pages/ApplyContactDetails";
-import ApplyWorkStatus from "./Pages/ApplyWorkStatus";
-import ApplyPersonal from "./Pages/ApplyPersonal";
-import ApplyNext from "./Pages/ApplyNext";
+import Details from "./Pages/LoanPage";
+import InvestmentPage from "./Pages/InvestmentPage";
+import LoanPage from "./Pages/LoanPage";
 
 function App() {
+
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path="/"
-          element={
+          element={ 
             <>
-              <Navbar />
+              {/* <Navbar />
               <Hero />
               <Services />
               <Works />
               <About />
               <Footer />
-              <ScrollToTop />
+              <ScrollToTop /> */}
+              <LoanPage />
+              {/* <InvestmentPage /> */}
             </>
           }
         />
-        <Route path="/apply" element={<Apply />} />
-        <Route path="/apply1" element={<ApplyPersonal />} />
-        <Route path="/apply2" element={<ApplyContactDetails />} />
-        <Route path="/apply3" element={<ApplyWorkStatus />} />
-        <Route path="/apply4" element={<ApplyNext />} />
       </Routes>
     </BrowserRouter>
   );
