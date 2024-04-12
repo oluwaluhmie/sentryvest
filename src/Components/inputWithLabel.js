@@ -11,7 +11,7 @@ const InputWithLabel = ({
 }) => {
   return (
     <div className="grid">
-      <span className="text-base font-bold text-homeColor pb-1">{labelName}:</span>
+      <span className="text-base font-bold text-homeColor pb-3">{labelName}:</span>
       <input
         type={inputType}
         value={inputValue}

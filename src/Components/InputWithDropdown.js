@@ -3,7 +3,7 @@ import React from "react";
 const InputWithDropdown = ({ labelName, options, selectedValue, onChange, inputError }) => {
   return (
     <div className="flex flex-col">
-      <label className="font-bold">{labelName}</label>
+      <label className="text-base font-bold text-homeColor pb-3">{labelName}</label>
       <select
         value={selectedValue}
         onChange={onChange}

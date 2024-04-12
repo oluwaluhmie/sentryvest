@@ -51,8 +51,12 @@ const ApplyPersonal = ({ formData, onFormChange }) => {
         }}
       >
         {({ values, errors, handleChange }) => (
-          <Form className="flex flex-col justify-end px-4 py-3 md:px-8">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <Form className="flex flex-col justify-end px-4 py-4 md:px-10">
+            <span className="text-base font-bold text-homeColor pb-2 md:hidden">
+              Personal Information
+            </span>
+            <hr className="pb-2 md:hidden" />
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3 md:mt-10">
               <InputWithLabel
                 labelName="First Name"
                 inputType="text"
@@ -111,7 +115,7 @@ const ApplyPersonal = ({ formData, onFormChange }) => {
                 onChange={(event) => {
                   handleChange({
                     target: {
-                      name: "maritalStatus",  
+                      name: "maritalStatus",
                       value: event.target.value,
                     },
                   });

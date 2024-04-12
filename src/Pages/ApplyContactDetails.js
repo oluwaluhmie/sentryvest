@@ -26,7 +26,11 @@ const ApplyContactDetails = ({ formData, onFormChange }) => {
         }}
       >
         {({ values, errors, handleChange }) => (
-          <Form className="flex flex-col justify-end px-4 py-4 md:px-8">
+          <Form className="flex flex-col justify-end px-4 py-4 md:px-10">
+            <span className="text-base font-bold text-homeColor pb-2 md:hidden">
+              Contact Details
+            </span>
+            <hr className="pb-2 md:hidden" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <InputWithLabel
                 labelName="Phone Number"

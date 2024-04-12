@@ -36,7 +36,7 @@ const ApplyLoan = ({ formData, onFormChange }) => {
   return (
     <div>
       <div className="text-center">
-        <h1 className="font-bold text-2xl md:text-3xl">
+        <h1 className="font-bold text-2xl md:text-3xl text-homeColor mb-4">
           Fill our application form with your correct details
         </h1>
       </div>
@@ -55,7 +55,9 @@ const ApplyLoan = ({ formData, onFormChange }) => {
         }}
       >
         {({ values, errors, handleChange }) => (
-          <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:px-10">
+          <Form className="flex flex-col justify-end px-4 py-4 md:px-10">
+            <span className="text-base font-bold text-homeColor pb-2 md:hidden">Loan Details</span>
+            <hr className="pb-2 md:hidden"/>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <InputWithLabel
                 labelName="Loan Amount"

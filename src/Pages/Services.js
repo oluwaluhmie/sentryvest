@@ -26,7 +26,7 @@ const Services = () => {
               use the funds.
             </p>
             <div className="flex justify-center items-center text-homeColor rounded-xl border-2 border-solid border-buttonColor gap-2 py-3 px-5 md:py-3 md:px-5 hover:bg-buttonColor hover:text-white">
-              <Link to={"/apply"}>
+              <Link to={"/loan"}>
                 <button className="font-DMsans text-base font-medium md:text-lg">
                   Apply now
                 </button>
@@ -43,7 +43,7 @@ const Services = () => {
               for various purposes.
             </p>
             <div className="flex justify-center items-center text-homeColor rounded-xl border-2 border-solid border-buttonColor gap-2 py-3 px-5 md:py-3 md:px-5 hover:bg-buttonColor hover:text-white">
-              <Link to={"/apply"}>
+              <Link to={"/loan"}>
                 <button className="font-DMsans text-base font-medium md:text-lg">
                   Apply now
                 </button>
@@ -60,7 +60,7 @@ const Services = () => {
               lifestyle.
             </p>
             <div className="flex justify-center items-center text-homeColor rounded-xl border-2 border-solid border-buttonColor gap-2 py-3 px-5 md:py-3 md:px-5 hover:bg-buttonColor hover:text-white">
-              <Link to={"/apply"}>
+              <Link to={"/investment"}>
                 <button className="font-DMsans text-base font-medium md:text-lg">
                   Apply now
                 </button>

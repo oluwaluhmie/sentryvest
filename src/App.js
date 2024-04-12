@@ -7,9 +7,8 @@ import Navbar from "./Pages/Navbar";
 import Services from "./Pages/Services";
 import Works from "./Pages/Works";
 import ScrollToTop from "./Components/scrollToTop";
-import Details from "./Pages/LoanPage";
-import InvestmentPage from "./Pages/InvestmentPage";
 import LoanPage from "./Pages/LoanPage";
+import InvestmentPage from "./Pages/InvestmentPage";
 
 function App() {
 
@@ -20,18 +19,18 @@ function App() {
           path="/"
           element={ 
             <>
-              {/* <Navbar />
+              <Navbar />
               <Hero />
               <Services />
               <Works />
               <About />
               <Footer />
-              <ScrollToTop /> */}
-              <LoanPage />
-              {/* <InvestmentPage /> */}
+              <ScrollToTop />
             </>
           }
         />
+        <Route path="/loan" element={<LoanPage />} />
+        <Route path="/investment" element={<InvestmentPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -7,11 +7,11 @@ import ApplyContactDetails from "./ApplyContactDetails";
 import ApplyWorkStatus from "./ApplyWorkStatus";
 import ApplyNext from "./ApplyNext";
 
-import loanDetails from "../assets/loan.png";
-import personalInfo from "../assets/personalinfo.png";
-import contact from "../assets/contact.png";
-import workStatus from "../assets/work.png";
-import nextOfKin from "../assets/family.png";
+import loanDetails from "../assets/loanblack.png";
+import personalInfo from "../assets/personalinfoblack.png";
+import contact from "../assets/contactblack.png";
+import workStatus from "../assets/workblack.png";
+import nextOfKin from "../assets/familyblack.png";
 import AcceptTerms from "../Components/AcceptTerms";
 
 const LoanPage = () => {
@@ -160,14 +160,16 @@ const LoanPage = () => {
     <div>
       <Navbar />
       <div className="flex">
-        <div className="px-4 py-6 pt-20 w-1/4 bg-gray-600 h-fit text-white md:px-10 md:py-12 md:pt-24">
-          <div className="flex flex-col items-start gap-7 mt-8 mb-7">
+        <div className="px-4 pt-20 w-1/4 text-homeColor md:px-10 md:py-12 md:pt-24">
+          <div className="flex flex-col items-start gap-7 mt-28 mb-7 md:mt-8">
             {sections.map((section) => (
               <div
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`flex items-center gap-4 cursor-pointer font-poppins text-base ${
-                  activeSection === section.id ? "font-bold uppercase" : ""
+                className={`flex items-center gap-4 cursor-pointer font-poppins text-sm border rounded-xl px-3 py-3 md:w-full ${
+                  activeSection === section.id
+                    ? "text-white px-3 py-3 border rounded-xl bg-buttonColor"
+                    : ""
                 }`}
               >
                 <img
@@ -175,7 +177,7 @@ const LoanPage = () => {
                   alt={section.label}
                   className="w-10 h-8"
                 />
-                <p>{section.label}</p>
+                <p className="hidden md:block md:text-base">{section.label}</p>
               </div>
             ))}
           </div>
@@ -194,7 +196,7 @@ const LoanPage = () => {
               onChange={handleCheckboxChange} // Pass the handleCheckboxChange function
             />
           )}
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between mt-24">
             {activeSection !== 0 && (
               <button
                 onClick={handleBack}

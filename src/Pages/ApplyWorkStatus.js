@@ -36,7 +36,11 @@ const ApplyWorkStatus = ({ formData, onFormChange }) => {
         }}
       >
         {({ values, errors, handleChange }) => (
-          <Form className="flex flex-col justify-end gap-4 px-4 py-4 md:py-8 md:px-10">
+          <Form className="flex flex-col justify-end px-4 py-4 md:px-10">
+            <span className="text-base font-bold text-homeColor pb-2 md:hidden">
+              Work Status
+            </span>
+            <hr className="pb-2 md:hidden" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               <InputWithDropdown
                 labelName="Employment Status"
