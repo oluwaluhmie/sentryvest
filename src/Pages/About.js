@@ -8,7 +8,7 @@ const About = () => {
       id="aboutSection"
       className="flex flex-col md:flex-row justify-between items-center px-4 py-8 mt-20 bg-servicesBg gap-8 md:px-24 md:py-10 md:gap-48"
     >
-      <div className="flex flex-col w-full md:w-1/2 gap-3">
+      <div className="flex flex-col w-full pt-10 md:w-1/2 gap-3">
         <span className="text-homeColor text-2xl font-bold md:text-left md:text-4xl">
           About us
         </span>

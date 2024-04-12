@@ -111,7 +111,7 @@ const Navbar = () => {
         <div className="flex flex-col justify-center items-center h-full font-DMsans">
           <Link
             to="/"
-            className="text-lg font-normal text-homeColor mr-6 hover:text-buttonColor"
+            className="text-lg font-normal text-homeColor mb-6 hover:text-buttonColor"
             onClick={() => {
               scrollToSection("heroSection");
               setIsMenuOpen(false);

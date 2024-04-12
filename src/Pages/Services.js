@@ -8,7 +8,7 @@ const Services = () => {
   return (
     <div
       id="servicesSection"
-      className="px-4 bg-servicesBg w-full mt-24 md:px-24"
+      className="px-4 bg-servicesBg w-full mt-24 pt-16 md:px-24"
     >
       <div className="flex flex-col justify-center items-center gap-10 pt-6 pb-12 md:pt-9 md:pb-24">
         <span className="font-bold text-2xl text-center text-homeColor md:text-4xl">

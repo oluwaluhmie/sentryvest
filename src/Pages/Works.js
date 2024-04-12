@@ -5,7 +5,7 @@ import groupsavings from "../assets/groupsavings.png";
 
 const Works = () => {
   return (
-    <div id="workSection" className="gap-10 px-4 mt-24 md:px-8 ">
+    <div id="workSection" className="gap-10 px-4 mt-24 pt-20 md:px-8 ">
       <div className="flex flex-col justify-center items-center gap-3 pb-5 md:px-32 md:pb-5">
         <span className="text-center font-bold text-2xl text-homeColor md:text-4xl">
           Ways to ensure your money keeps growing
