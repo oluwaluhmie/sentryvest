@@ -33,7 +33,7 @@ const ApplyNext = ({ formData, onFormChange }) => {
             <span className="text-base font-bold text-homeColor pb-2 md:hidden">
               Next of Kin Details
             </span>
-            <hr className="pb-2 md:hidden" />
+            <hr className="border-t-2 border-buttonColor pb-5 md:hidden" />
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <InputWithLabel
                 labelName="Full name"
