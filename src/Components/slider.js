@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const Slider = () => {
   const text1 = (
     <>
-      <h1 className="text-homeColor text-4xl px-3 font-bold text-center mb-6 md:text-5xl lg:text-6xl md:text-left md:ml-10">
+      <h1 className="text-homeColor text-4xl px-3 font-bold text-center mb-6 md:text-4xl lg:text-6xl md:text-left md:ml-10">
         Quick and Easy Loans for Your Financial Needs.
       </h1>
       <p className="text-homeColor text-lg font-DMsans px-3 font-normal text-center md:text-left md:ml-10">
@@ -13,7 +13,7 @@ const Slider = () => {
   );
   const text2 = (
     <>
-      <h1 className="text-homeColor text-4xl px-3 font-bold text-center mb-6 md:text-5xl lg:text-6xl md:text-left md:ml-10">
+      <h1 className="text-homeColor text-4xl px-3 font-bold text-center mb-6 md:text-4xl lg:text-6xl md:text-left md:ml-10">
         Join Thousands Building Wealth with Sentryvest.
       </h1>
       <p className="text-homeColor text-lg font-DMsans px-3 font-normal text-center md:text-left md:ml-10">
