@@ -31,7 +31,7 @@ const Footer = () => {
             <Link to="https://www.instagram.com/sentryvest">
               <img src={instagram} alt="Instagram" />
             </Link>
-            <Link to="https://www.linkedin.com/sentryvestlimited">
+            <Link to="https://www.linkedin.com/company/sentryvestlimited">
               <img src={linkedin} alt="LinkedIn" />
             </Link>
           </div>
@@ -54,7 +54,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <img src={mail} alt="Email" />
-                <p>social@realifesentry.com</p>
+                <p>hello@sentryvest.com</p>
               </div>
               <div className="flex items-center gap-2">
                 <img src={location} alt="Location" />
