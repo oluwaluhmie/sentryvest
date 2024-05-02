@@ -11,10 +11,8 @@ import location from "../assets/location.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-homeColor text-white">
-      <div 
-      id="footerSection"
-      className="container mx-auto px-8 py-8 flex flex-col md:flex-row justify-between items-start">
+    <footer id="footerSection" className="bg-homeColor text-white">
+      <div className="container mx-auto px-8 py-8 flex flex-col md:flex-row justify-between items-start">
         {/* Left Section */}
         <div className="w-full md:px-14 md:w-1/2">
           <img src={logo} alt="SentryVest" className="w-48 md:w-26" />
