@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0d3d2f6f.css",
+    "main.js": "/static/js/main.2ec6d136.js",
+    "static/js/787.9eb0e1d9.chunk.js": "/static/js/787.9eb0e1d9.chunk.js",
+    "static/media/investment.png": "/static/media/investment.ab6bbef4ada0a611d57a.png",
+    "static/media/businessloan.png": "/static/media/businessloan.3299cc712d4d4a5f7190.png",
+    "static/media/automatedsavings.png": "/static/media/automatedsavings.c17f653c84627788d7c8.png",
+    "static/media/fixedinvestment.png": "/static/media/fixedinvestment.f0f473da1c6cc9efdf36.png",
+    "static/media/goaloriented.png": "/static/media/goaloriented.3d57612be17f6875f755.png",
+    "static/media/groupsavings.png": "/static/media/groupsavings.e4660242248335514e0c.png",
+    "static/media/personaloan.png": "/static/media/personaloan.7502eb7d324eb0e6f9f0.png",
+    "static/media/hero.png": "/static/media/hero.80819ef9e953d207cf2d.png",
+    "static/media/invest.png": "/static/media/invest.2d10bc19812ea350b2c2.png",
+    "static/media/loanblack.png": "/static/media/loanblack.505f679d61778f2deec2.png",
+    "static/media/about.png": "/static/media/about.e024f2506f701efe6da2.png",
+    "static/media/familyblack.png": "/static/media/familyblack.045fe843e1055a582ac8.png",
+    "static/media/workblack.png": "/static/media/workblack.ab63ff2af5ebc6552071.png",
+    "static/media/personalinfoblack.png": "/static/media/personalinfoblack.84e8d9dcade52a100fa6.png",
+    "static/media/contactblack.png": "/static/media/contactblack.3ab7bcce1d7942a5ee3e.png",
+    "static/media/SentryVestWhite.png": "/static/media/SentryVestWhite.2b7585ce38810b246c61.png",
+    "static/media/instagram.svg": "/static/media/instagram.d6121f7fb7a5ea9a314992f4fb5c7cda.svg",
+    "static/media/phone.svg": "/static/media/phone.6e458a5b3579411a0d17587ac986c7a0.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.2cc67e19ecd7c3585077b34dec479028.svg",
+    "static/media/facebook.svg": "/static/media/facebook.bb31ba6a7f9cdd7c209d9aaa07f823c3.svg",
+    "index.html": "/index.html",
+    "static/media/close.svg": "/static/media/close.53c9f4b6ba9fca553d1eb9cda88a11af.svg",
+    "static/media/menu.svg": "/static/media/menu.501536c55a38d36dc4a10489c8310a05.svg",
+    "main.0d3d2f6f.css.map": "/static/css/main.0d3d2f6f.css.map",
+    "main.2ec6d136.js.map": "/static/js/main.2ec6d136.js.map",
+    "787.9eb0e1d9.chunk.js.map": "/static/js/787.9eb0e1d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0d3d2f6f.css",
+    "static/js/main.2ec6d136.js"
+  ]
+}
