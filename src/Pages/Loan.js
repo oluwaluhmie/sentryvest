@@ -134,31 +134,31 @@ const Loan = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-100 md:w-200 lg:w-341.5">
-      <div className="flex flex-row md:justify-between px-6 md:px-12 py-8 md:py-12 md:h-46 md:w-200 overflow-hidden">
-        <span className="text-homeColor text-3xl font-bold md:w-70 md:items-start">
+    <div className="flex flex-col items-center w-100 md:w-200 lg:w-full">
+      <div className="flex flex-row md:justify-between px-6 md:px-12 lg:px-48 py-8 md:py-12 lg:py-15 md:h-46 lg:h-62 md:w-200 lg:w-400 overflow-hidden">
+        <span className="text-homeColor text-3xl lg:text-5xl font-bold md:w-70 lg:w-105 md:items-start">
           Secure your loan in minutes
         </span>
         <div className="hidden md:flex overflow-visible">
           <img
             src={loangraphic}
             alt="loangraphic"
-            className="h-34.3025 w-35.065 max-h-none max-w-none transform -rotate-8.96"
+            className="h-34.3025 w-35.065 lg:h-52.1675 lg:w-53.3275 max-h-none max-w-none transform -rotate-8.96"
           />
         </div>
       </div>
-      <div className="flex flex-col gap-8 md:gap-12 border-t border-homeColor/10 px-6 md:px-12 py-8 md:py-12 md:w-200 lg:w-300">
-        <span className="text-sm text-homeColor w-88 md:w-90">
+      <div className="flex flex-col gap-8 md:gap-12 border-t border-homeColor/10 px-6 md:px-12 lg:px-48 py-8 md:py-12 lg:py-15 md:w-200 lg:w-400">
+        <span className="text-sm lg:text-base text-homeColor w-88 md:w-90 lg:w-120">
           Please fill our application form with your correct details
         </span>
-        <div className="flex h-fit">
+        <div className="flex h-fit lg:w-300">
           {/* Left side */}
           <div className="flex flex-col py-3 gap-2.25">
             {sections.map((section) => (
               <div
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`flex flex-row gap-3 px-4 py-3 w-12.5 md:w-56 ${
+                className={`flex flex-row gap-3 px-4 py-3 w-12.5 md:w-56 lg:w-80 ${
                   activeSection === section.id
                     ? "text-buttonColor border-l rounded-l-xl font-bold border-t border-b border-homeColor/15 bg-buttonColor/10"
                     : ""
@@ -170,7 +170,7 @@ const Loan = () => {
             ))}
           </div>
           {/* Right side */}
-          <div className="flex flex-col gap-6 md:gap-10 px-4 md:px-6 md:py-8 pt-1.5 pb-6 w-full md:w-120 border border-homeColor/15 rounded-xl shadow-form">
+          <div className="flex flex-col gap-6 md:gap-10 px-4 md:px-6 md:py-8 pt-1.5 pb-6 w-full md:w-120 lg:w-220 border border-homeColor/15 rounded-xl shadow-form">
             {sections.map(
               (section) =>
                 activeSection === section.id && (
