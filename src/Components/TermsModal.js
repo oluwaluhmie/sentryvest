@@ -4,7 +4,7 @@ import Modal from "react-modal";
 const TermsModal = ({ isOpen, onClose }) => {
   return (
     <Modal isOpen={isOpen} onRequestClose={onClose}>
-      <div className="flex flex-col justify-center w-full gap-2 pt-5 px-4 font-DMsans md:px-5 md:pb-6">
+      <div className="flex flex-col justify-center w-full gap-2 pt-5 px-4 md:px-5 md:pb-6">
         <div className="flex flex-col gap-3">
           <span className="font-bold text-2xl text-center text-homeColor md:text-3xl">
             TERMS AND CONDITIONS

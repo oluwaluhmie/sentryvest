@@ -104,7 +104,7 @@ const About = ({ onFormChange = () => {} }) => {
                     />
                     <button
                       type="submit"
-                      className="flex justify-center items-center px-8 py-3 text-white text-lg border-2 bg-buttonColor hover:bg-homeColor font-raleway font-semibold rounded-xl"
+                      className="flex justify-center items-center px-8 py-3 text-white text-lg border-2 bg-buttonColor hover:bg-homeColor  rounded-xl"
                     >
                       Send
                     </button>

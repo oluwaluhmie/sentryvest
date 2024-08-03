@@ -6,7 +6,7 @@ const Slider = () => {
       <h1 className="text-3xl md:text-4xl lg:text-5xl font-gotham">
         Quick and Easy Loans for Your Financial Needs.
       </h1>
-      <p className="text-lg lg:text-xl font-DMsans">
+      <p className="text-lg lg:text-xl">
         Our loan services offer a hassle-free and streamlined borrowing experience, providing you with the funds you need in a timely manner to meet your financial requirements.
       </p>
     </div>
@@ -16,7 +16,7 @@ const Slider = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-gotham">
         Join Thousands Building Wealth with Sentryvest.
       </h1>
-      <p className="text-lg lg:text-xl font-DMsans">
+      <p className="text-lg lg:text-xl">
         Your Path to Financial Freedom Starts Here - Explore Investment
         Opportunities Today!
       </p>

@@ -89,7 +89,7 @@ const Navbar = () => {
           {/* Contact us Button */}
           <div className="hidden lg:block bg-white text-homeColor border border-buttonColor hover:bg-buttonColor hover:text-white rounded-xl">
             <button
-              className="text-base font-raleway font-semibold md:px-5 md:py-3"
+              className="text-base md:px-5 md:py-3"
               onClick={() => {
                 scrollToSection("footerSection");
               }}
@@ -113,7 +113,7 @@ const Navbar = () => {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-          <div className="flex flex-col mt-6 h-screen w-full font-DMsans">
+          <div className="flex flex-col mt-6 h-screen w-full">
             <div className="flex flex-col h-full">
               <div className="px-2 py-4">
                 <Link

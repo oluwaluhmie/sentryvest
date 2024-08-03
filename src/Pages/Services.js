@@ -29,7 +29,7 @@ const Services = () => {
                 </p>
               </div>
               <Link to="/loan">
-                <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white font-raleway font-semibold rounded-xl">
+                <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
                   Apply now
                 </button>
               </Link>
@@ -49,7 +49,7 @@ const Services = () => {
                 </p>
               </div>
               <Link to="/loan">
-                <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white font-raleway font-semibold rounded-xl">
+                <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
                   Apply now
                 </button>
               </Link>
@@ -69,7 +69,7 @@ const Services = () => {
                 </p>
               </div>
               <Link to="/investment">
-                <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white font-raleway font-semibold rounded-xl">
+                <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
                   Apply now
                 </button>
               </Link>
@@ -77,7 +77,7 @@ const Services = () => {
           </div>
         </div>
         {/* <span className="flex justify-center items-center border-0 border-solid bg-buttonColor w-full md:w-52 px-4 md:px- py-2 md:py-3 gap-2 md:gap-3 hover:bg-homeColor">
-          <button className="text-white font-DMsans text-base md:text-lg font-medium">
+          <button className="text-white text-base md:text-lg font-medium">
             View more
           </button>
         </span> */}

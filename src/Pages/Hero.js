@@ -15,7 +15,7 @@ const Hero = () => {
             <Slider />
             <div className="flex justify-center bg-white text-homeColor items-center border-2 border-buttonColor px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
               <Link to={"/loan"}>
-                <button className="font-raleway font-semibold text-base">
+                <button className="text-base">
                   Get started
                 </button>
               </Link>

@@ -148,7 +148,7 @@ const Loan = () => {
         </div>
       </div>
       <div className="flex flex-col gap-8 md:gap-12 border-t border-homeColor/10 px-6 md:px-12 py-8 md:py-12 md:w-200 lg:w-300">
-        <span className="font-DMsans text-sm text-homeColor w-88 md:w-90">
+        <span className="text-sm text-homeColor w-88 md:w-90">
           Please fill our application form with your correct details
         </span>
         <div className="flex h-fit">
@@ -160,7 +160,7 @@ const Loan = () => {
                 onClick={() => setActiveSection(section.id)}
                 className={`flex flex-row gap-3 px-4 py-3 w-12.5 md:w-56 ${
                   activeSection === section.id
-                    ? "text-buttonColor border-l rounded-l-xl font-bold font-DMsans border-t border-b border-homeColor/15 bg-buttonColor/10"
+                    ? "text-buttonColor border-l rounded-l-xl font-bold border-t border-b border-homeColor/15 bg-buttonColor/10"
                     : ""
                 }`}
               >

@@ -3,7 +3,7 @@ import React from "react";
 const FileInput = ({ labelName, onChange, inputError }) => {
   return (
     <div className="flex flex-col gap-1.5">
-      <span className="text-homeColor font-DMsans text-sm font-semibold">{labelName}</span>
+      <span className="text-homeColor text-sm">{labelName}</span>
       <input
         id="fileInput"
         name="fileInput"

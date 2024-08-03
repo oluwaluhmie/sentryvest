@@ -26,7 +26,7 @@ const Personal = ({ formData, onFormChange }) => {
   return (
     <div className="flex flex-col gap-6 overflow-hidden">
       <div className="py-3 border-b border-homeColor/15 md:hidden">
-        <span className="font-DMsans font-bold text-buttonColor text-xs">
+        <span className="font-bold text-buttonColor text-xs">
           Personal Information
         </span>
       </div>

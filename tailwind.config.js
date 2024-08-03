@@ -15,9 +15,7 @@ module.exports = {
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
-        DMsans: ["DM Sans", "sans-serif"],
         gotham: ["Gotham", "sans-serif"],
-        raleway: ["Raleway", "sans-serif"],
       },
       gap: {
         2.25: "9px",

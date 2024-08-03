@@ -13,7 +13,7 @@ const InputWithDropdown = ({
 
   return (
     <div className="flex flex-col gap-2">
-      <span className="text-homeColor font-DMsans text-sm font-semibold">
+      <span className="text-homeColor text-sm">
         {labelName}
       </span>
       <select
