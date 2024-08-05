@@ -184,7 +184,7 @@ const Loan = () => {
                 onChange={handleCheckboxChange} // Pass the handleCheckboxChange function
               />
             )}
-            <div className="flex gap-3 w-full">
+            <div className="flex gap-3 w-full lg:w-78">
               <button
                 onClick={handleBack}
                 disabled={activeSection === 0}

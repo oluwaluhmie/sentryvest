@@ -20,7 +20,7 @@ const Footer = () => {
               <Link to="/">
                 <img src={logo} alt="SentryVest" className="w-48" />
               </Link>
-              <span className="text-base md:w-128 font-poppins">
+              <span className="text-base md:w-128">
                 Our mission is to democratize access to wealth-building
                 opportunities by providing tailored financial products,
                 education, and support to underserved communities.
@@ -33,7 +33,7 @@ const Footer = () => {
                   <span className="text-sm md:text-base font-gotham">
                     Our Services
                   </span>
-                  <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 font-poppins">
+                  <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">
                     <p className="hover:text-textColor text-sm md:text-base">
                       Personal Loan
                     </p>
@@ -49,7 +49,7 @@ const Footer = () => {
                   <span className="text-sm md:text-base font-gotham">
                     Contact Us
                   </span>
-                  <div className="flex flex-col gap-1 md:gap-2 lg:gap-3 font-poppins">
+                  <div className="flex flex-col gap-1 md:gap-2 lg:gap-3">
                     <p className="hover:text-textColor text-sm md:text-base">
                       +234 707 038 6014
                     </p>
@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
           </div>
           <hr className="opacity-20" />
-          <div className="flex flex-col gap-6 font-poppins text-sm md:text-base">
+          <div className="flex flex-col gap-6 text-sm md:text-base">
             <div className="flex gap-4">
               <Link to="https://www.facebook.com/sentryvest">
                 <img src={facebook} alt="Facebook" />

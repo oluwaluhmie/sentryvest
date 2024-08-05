@@ -20,7 +20,7 @@ const InputWithLabel = ({
           name={inputName}
           placeholder={placeholder}
           onChange={inputOnChange}
-          className="h-24 border text-sm border-homeColor/25 rounded-xl px-5 py-2 self-stretch resize-none"
+          className="h-24 border text-sm border-homeColor/25 rounded-xl px-5 self-stretch resize-none"
         />
       ) : (
         <input
@@ -29,7 +29,7 @@ const InputWithLabel = ({
           name={inputName}
           placeholder={placeholder}
           onChange={inputOnChange}
-          className="border border-homeColor/25 text-sm rounded-xl self-stretch px-5 py-2"
+          className="h-12 border border-homeColor/25 text-sm rounded-xl self-stretch px-5"
         />
       )}
       {InputError && <code className="text-red-500 text-xs">{InputError}</code>}
