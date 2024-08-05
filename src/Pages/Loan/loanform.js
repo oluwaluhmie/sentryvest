@@ -31,7 +31,7 @@ const LoanForm = ({ formData, onFormChange }) => {
           returningDate: Yup.date()
             .required("Returning Date is required")
             .min(
-              Yup.ref("issueDate"),
+              Yup.ref("obtainDate"),
               "Returning Date cannot be before Obtain Date"
             )
             .test(

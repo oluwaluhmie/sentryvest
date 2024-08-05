@@ -10,7 +10,7 @@ const FileInput = ({ labelName, onChange, inputError }) => {
         type="file"
         accept=".jpg, .jpeg, .png"
         onChange={onChange}
-        className="h-12 border border-homeColor/25 text-sm rounded-xl self-stretch px-5 py-2.5"
+        className="h-12 border border-homeColor/25 text-sm rounded-xl self-stretch px-3 py-2.5 text-homeColor"
       />
       {inputError && <p className="text-red-500 text-xs">{inputError}</p>}
     </div>

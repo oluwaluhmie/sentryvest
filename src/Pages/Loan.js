@@ -3,8 +3,8 @@ import LoanDetails from "./Loan/loanform";
 import Personal from "./Loan/personal";
 import Guarantor from "./Loan/guarantor";
 import loan from "../assets/loangreen.svg";
-import personal from "../assets/personalplain.svg";
-import guarantor from "../assets/guarantorplain.svg";
+import personal from "../assets/personalgreen.svg";
+import guarantor from "../assets/guarantorgreen.svg";
 import AcceptTerms from "../Components/AcceptTerms";
 import left from "../assets/left.svg";
 import right from "../assets/right.svg";
@@ -135,9 +135,9 @@ const Loan = () => {
 
   return (
     <div className="flex flex-col items-center w-100 md:w-200 lg:w-full">
-      <div className="flex flex-row md:justify-between px-6 md:px-12 lg:px-48 py-8 md:py-12 lg:py-15 md:h-46 lg:h-62 md:w-200 lg:w-400 overflow-hidden">
-        <span className="text-homeColor text-3xl lg:text-5xl font-bold md:w-70 lg:w-105 md:items-start">
-          Secure your loan in minutes
+      <div className="flex flex-row md:justify-between px-6 md:px-12 lg:px-48 py-8 md:py-12 lg:py-15 md:h-46 lg:h-62 w-full md:w-200 lg:w-400 overflow-hidden">
+        <span className="text-homeColor text-3xl lg:text-5xl font-bold w-67.5 md:w-70 lg:w-105 md:items-start">
+          Secure Your Loan in Minutes
         </span>
         <div className="hidden md:flex overflow-visible">
           <img

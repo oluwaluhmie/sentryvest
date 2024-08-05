@@ -19,7 +19,7 @@ const InputWithDropdown = ({
       <select
         value={selectedValue}
         onChange={onChange}
-        className="h-12 border text-sm border-homeColor/25 rounded-xl text-searchBoxText px-5 self-stretch"
+        className="h-12 border text-sm border-homeColor/25 rounded-xl text-searchBoxText px-3 self-stretch"
         style={selectedStyle}
       >
         <option value="" disabled>
