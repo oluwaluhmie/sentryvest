@@ -174,7 +174,7 @@ const Investment = () => {
               <div
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`flex flex-row gap-3 px-4 py-3 w-12.5 md:w-56 lg:w-80 ${
+                className={`flex flex-row gap-3 px-4 py-3 w-12.5 md:w-56 lg:w-80 cursor-pointer ${
                   activeSection === section.id
                     ? "text-buttonColor border-l rounded-l-xl font-bold border-t border-b border-homeColor/15 bg-buttonColor/10"
                     : ""
