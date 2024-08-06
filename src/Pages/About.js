@@ -2,8 +2,45 @@ import about from "../assets/about.png";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import InputWithLabel from "../Components/InputWithLabel";
+import axios from "axios";
 
 const About = ({ onFormChange = () => {} }) => {
+  const handleSubmit = async (values, { resetForm, setSubmitting }) => {
+    try {
+      const data = JSON.stringify({
+        name: values.name,
+        emailAddress: values.email,
+        phoneNumber: values.phoneNumber,
+        message: values.message,
+      });
+
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "https://api.sentryvest.com/v1/api/contact_us",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "30072024",
+        },
+        data: data,
+      };
+
+      const response = await axios(config);
+
+      if (response.status !== 200) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = response.data;
+      console.log("Form submission successful:", result);
+      resetForm(); // Clear form after successful submission
+    } catch (error) {
+      console.error("Fetch request failed:", error.message);
+    } finally {
+      setSubmitting(false); // Set submitting state back to false
+    }
+  };
+
   return (
     <div id="aboutSection" className="flex flex-col items-center bg-servicesBg">
       <div className="flex flex-col items-center w-107.5 md:w-200 lg:w-341.5 overflow-hidden">
@@ -40,16 +77,9 @@ const About = ({ onFormChange = () => {} }) => {
                   .required("Email is required"),
                 message: Yup.string().required("Message is required"),
               })}
-              onSubmit={(values, { resetForm }) => {
-                // Handle form submission here
-                console.log(values);
-                // To send the form details to an email address, you need to use a backend service.
-                // You can make a POST request to your backend endpoint here passing the form values.
-                // For demonstration purposes, I'll just log the form values.
-                resetForm(); // clear form after submission
-              }}
+              onSubmit={handleSubmit}
             >
-              {({ values, errors, handleChange }) => (
+              {({ values, errors, handleChange, isSubmitting }) => (
                 <Form className="flex flex-col gap-6 md:gap-8 w-full lg:w-1/2 lg:px-8 py-5">
                   <div className="grid grid-cols-1 gap-5 md:gap-6">
                     <div className="grid gap-5 md:grid md:grid-cols-2 md:gap-x-6">
@@ -105,6 +135,7 @@ const About = ({ onFormChange = () => {} }) => {
                     <button
                       type="submit"
                       className="flex justify-center items-center px-8 py-3 text-white text-lg border-2 bg-buttonColor hover:bg-homeColor  rounded-xl"
+                      disabled={isSubmitting}
                     >
                       Send
                     </button>
