@@ -6,7 +6,7 @@ import InputWithDropdown from "../../Components/InputWithDropdown";
 import FileInput from "../../Components/FileInput";
 
 const Nextkin = ({ formData, onFormChange }) => {
-  const ntitle = [
+  const nextKinTitle = [
     { value: "Miss", label: "Miss." },
     { value: "Mr", label: "Mr." },
     { value: "Mrs", label: "Mrs." },
@@ -22,17 +22,19 @@ const Nextkin = ({ formData, onFormChange }) => {
       <Formik
         initialValues={formData}
         validationSchema={Yup.object({
-          ntitle: Yup.string().required("Title is required"),
-          nfullName: Yup.string().required("Full name is required"),
-          nphoneNumber: Yup.string()
+          nextKinTitle: Yup.string().required("Title is required"),
+          nextKinFullName: Yup.string().required("Full name is required"),
+          nextKinPhoneNumber: Yup.string()
             .matches(/^\d{11}$/, "Phone number must be exactly 11 digits")
             .required("Phone number is required"),
-          nemail: Yup.string()
+          nextKinEmailAddress: Yup.string()
             .email("Invalid email address")
             .required("Email is required"),
-          noccupation: Yup.string().required("Occupation is required"),
-          nrelationship: Yup.string().required("Relationship is required"),
-          nsignature: Yup.mixed()
+          nextKinOccupation: Yup.string().required("Occupation is required"),
+          nextKinRelationship: Yup.string().required(
+            "Relationship is required"
+          ),
+          nextKinSignature: Yup.mixed()
             .required("A signature is required")
             .test(
               "fileSize",
@@ -48,7 +50,7 @@ const Nextkin = ({ formData, onFormChange }) => {
         })}
         onSubmit={(values, { resetForm }) => {
           console.log(values); // Handle form submission here
-          resetForm(); // Clear form after submission
+          onFormChange(values); // Send updated form data to parent component
         }}
       >
         {({ values, errors, setFieldValue, touched, handleChange }) => (
@@ -57,107 +59,115 @@ const Nextkin = ({ formData, onFormChange }) => {
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <InputWithDropdown
                   labelName="Title"
-                  options={ntitle}
-                  selectedValue={values.ntitle}
+                  options={nextKinTitle}
+                  selectedValue={values.nextKinTitle}
                   onChange={(event) => {
                     handleChange({
                       target: {
-                        name: "ntitle",
+                        name: "nextKinTitle",
                         value: event.target.value,
                       },
                     });
-                    onFormChange({ ...values, ntitle: event.target.value });
+                    onFormChange({
+                      ...values,
+                      nextKinTitle: event.target.value,
+                    });
                   }}
-                  inputError={errors.ntitle}
+                  inputError={errors.nextKinTitle}
                 />
                 <InputWithLabel
                   labelName="Full Name"
                   inputType="text"
-                  inputName="nfullName"
+                  inputName="nextKinFullName"
                   placeholder="Enter full name"
-                  inputValue={values.nfullName}
+                  inputValue={values.nextKinFullName}
                   inputOnChange={(event) => {
                     handleChange(event);
-                    onFormChange({ nfullName: event.target.value });
+                    onFormChange({ nextKinFullName: event.target.value });
                   }}
-                  inputError={errors.nfullName}
+                  inputError={errors.nextKinFullName}
                 />
               </div>
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <InputWithLabel
                   labelName="Phone Number"
                   inputType="text"
-                  inputName="nphoneNumber"
+                  inputName="nextKinPhoneNumber"
                   placeholder="Enter your phone number"
-                  inputValue={values.nphoneNumber}
+                  inputValue={values.nextKinPhoneNumber}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      nphoneNumber: event.target.value,
+                      nextKinPhoneNumber: event.target.value,
                     });
                   }}
-                  inputError={errors.nphoneNumber}
+                  inputError={errors.nextKinPhoneNumber}
                 />
                 <InputWithLabel
                   labelName="Email Address"
                   inputType="email"
-                  inputName="nemail"
+                  inputName="nextKinEmailAddress"
                   placeholder="Enter your email"
-                  inputValue={values.nemail}
+                  inputValue={values.nextKinEmailAddress}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      nemail: event.target.value,
+                      nextKinEmailAddress: event.target.value,
                     });
                   }}
-                  inputError={errors.nemail}
+                  inputError={errors.nextKinEmailAddress}
                 />
               </div>
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <InputWithLabel
                   labelName="Occupation"
                   inputType="text"
-                  inputName="noccupation"
+                  inputName="nextKinOccupation"
                   placeholder="Enter your occupation"
-                  inputValue={values.noccupation}
+                  inputValue={values.nextKinOccupation}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      noccupation: event.target.value,
+                      nextKinOccupation: event.target.value,
                     });
                   }}
-                  inputError={errors.noccupation}
+                  inputError={errors.nextKinOccupation}
                 />
                 <InputWithLabel
                   labelName="Relationship"
                   inputType="text"
-                  inputName="nrelationship"
+                  inputName="nextKinRelationship"
                   placeholder="State your relationship"
-                  inputValue={values.nrelationship}
+                  inputValue={values.nextKinRelationship}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      nrelationship: event.target.value,
+                      nextKinRelationship: event.target.value,
                     });
                   }}
-                  inputError={errors.nrelationship}
+                  inputError={errors.nextKinRelationship}
                 />
               </div>
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <FileInput
                   labelName="Signature"
                   onChange={(event) => {
-                    setFieldValue("nsignature", event.currentTarget.files[0]);
+                    setFieldValue(
+                      "nextKinSignature",
+                      event.currentTarget.files[0]
+                    );
                     onFormChange({
                       ...values,
-                      nsignature: event.currentTarget.files[0],
+                      nextKinSignature: event.currentTarget.files[0],
                     });
                   }}
-                  inputError={touched.nsignature && errors.nsignature}
+                  inputError={
+                    touched.nextKinSignature && errors.nextKinSignature
+                  }
                 />
               </div>
             </div>

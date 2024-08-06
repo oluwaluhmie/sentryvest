@@ -14,9 +14,7 @@ const LoanForm = ({ formData, onFormChange }) => {
   return (
     <div className="flex flex-col gap-6 overflow-hidden">
       <div className="py-3 border-b border-homeColor/15 md:hidden">
-        <span className="font-bold text-buttonColor text-xs">
-          Loan Details
-        </span>
+        <span className="font-bold text-buttonColor text-xs">Loan Details</span>
       </div>
       <Formik
         initialValues={formData}
@@ -45,7 +43,7 @@ const LoanForm = ({ formData, onFormChange }) => {
         })}
         onSubmit={(values, { resetForm }) => {
           console.log(values); // Handle form submission here
-          resetForm(); // Clear form after submission
+          onFormChange(values); // Send updated form data to parent component
         }}
       >
         {({ values, errors, handleChange }) => (

@@ -93,7 +93,7 @@ const Personal = ({ formData, onFormChange }) => {
         })}
         onSubmit={(values, { resetForm }) => {
           console.log(values); // Handle form submission here
-          resetForm(); // Clear form after submission
+          onFormChange(values); // Send updated form data to parent component
         }}
       >
         {({ values, errors, setFieldValue, touched, handleChange }) => (

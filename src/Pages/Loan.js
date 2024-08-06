@@ -9,42 +9,52 @@ import AcceptTerms from "../Components/AcceptTerms";
 import left from "../assets/left.svg";
 import right from "../assets/right.svg";
 import loangraphic from "../assets/loangraphic.png";
+import axios from "axios";
 
 const Loan = () => {
   const [activeSection, setActiveSection] = useState(0);
 
   const [formData, setFormData] = useState({
-    businessType: "",
-    loanAmount: "",
-    obtainDate: "",
-    returningDate: "",
-    fullName: "",
-    phoneNumber: "",
-    email: "",
-    passport: null,
-    dob: "",
-    gender: "",
-    religion: "",
-    maritalStatus: "",
-    homeAddress: "",
-    lga: "",
-    shopAddress: "",
-    stateOrigin: "",
-    signature: null,
-    gfullName: "",
-    gphoneNumber: "",
-    gemail: "",
-    gpassport: null,
-    ghomeAddress: "",
-    gOccupation: "",
-    gofficeAddress: "",
-    gRelationship: "",
-    gSignature: null,
+    loanform: {
+      businessType: "",
+      loanAmount: "",
+      obtainDate: "",
+      returningDate: "",
+    },
+    personal: {
+      fullName: "",
+      phoneNumber: "",
+      email: "",
+      passport: null,
+      dob: "",
+      gender: "",
+      religion: "",
+      maritalStatus: "",
+      homeAddress: "",
+      lga: "",
+      shopAddress: "",
+      stateOrigin: "",
+      signature: null,
+    },
+    guarantor: {
+      guarantorName: "",
+      guarantorPhoneNumber: "",
+      guarantorEmailAddress: "",
+      guarantorPassport: null,
+      guarantorHomeAddress: "",
+      guarantorOccupation: "",
+      guarantorOfficeAddress: "",
+      relationshipToApplicant: "",
+      guarantorSignature: null,
+    },
     acceptedTerms: false,
   });
 
-  const handleLoanFormChange = (data) => {
-    setFormData({ ...formData, ...data });
+  const handleLoanFormChange = (formName, data) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [formName]: data,
+    }));
   };
 
   const sections = [
@@ -53,7 +63,10 @@ const Loan = () => {
       label: "Loan Details",
       icon: loan,
       component: (
-        <LoanDetails formData={formData} onFormChange={handleLoanFormChange} />
+        <LoanDetails
+          formData={formData.loanform}
+          onFormChange={(data) => handleLoanFormChange("loanform", data)}
+        />
       ),
     },
     {
@@ -61,7 +74,10 @@ const Loan = () => {
       label: "Personal Information",
       icon: personal,
       component: (
-        <Personal formData={formData} onFormChange={handleLoanFormChange} />
+        <Personal
+          formData={formData.personal}
+          onFormChange={(data) => handleLoanFormChange("personal", data)}
+        />
       ),
     },
     {
@@ -69,7 +85,10 @@ const Loan = () => {
       label: "Guarantor Information",
       icon: guarantor,
       component: (
-        <Guarantor formData={formData} onFormChange={handleLoanFormChange} />
+        <Guarantor
+          formData={formData.guarantor}
+          onFormChange={(data) => handleLoanFormChange("guarantor", data)}
+        />
       ),
     },
   ];
@@ -91,46 +110,120 @@ const Loan = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    // Handle form submission here
-    console.log("Form Data:", formData);
+  const handleSubmit = async () => {
+    // Convert formData to FormData instance
+    const data = new FormData();
+    data.append("businessType", formData.loanform.businessType);
+    data.append("principalLoanAmount", formData.loanform.loanAmount);
+    data.append("obtainDate", formData.loanform.obtainDate);
+    data.append("returningDate", formData.loanform.returningDate);
+    data.append("name", formData.personal.fullName);
+    data.append("phoneNumber", formData.personal.phoneNumber);
+    data.append("emailAddress", formData.personal.email);
+    data.append("dateOfBirth", formData.personal.dob);
+    data.append("gender", formData.personal.gender);
+    data.append("religion", formData.personal.religion);
+    data.append("maritalStatus", formData.personal.maritalStatus);
+    data.append("homeAddress", formData.personal.homeAddress);
+    data.append("lga", formData.personal.lga);
+    data.append("shopAddress", formData.personal.shopAddress);
+    data.append("stateOfOrigin", formData.personal.stateOrigin);
+    data.append("guarantorName", formData.guarantor.guarantorName);
+    data.append(
+      "guarantorPhoneNumber",
+      formData.guarantor.guarantorPhoneNumber
+    );
+    data.append(
+      "guarantorEmailAddress",
+      formData.guarantor.guarantorEmailAddress
+    );
+    data.append(
+      "guarantorHomeAddress",
+      formData.guarantor.guarantorHomeAddress
+    );
+    data.append(
+      "guarantorOfficeAddress",
+      formData.guarantor.guarantorOfficeAddress
+    );
+    data.append("guarantorOccupation", formData.guarantor.guarantorOccupation);
+    data.append(
+      "relationshipToApplicant",
+      formData.guarantor.relationshipToApplicant
+    );
 
-    // Reset all form fields to initial values except acceptedTerms
-    setFormData({
-      businessType: "",
-      loanAmount: "",
-      obtainDate: "",
-      returningDate: "",
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      passport: null,
-      dob: "",
-      gender: "",
-      religion: "",
-      maritalStatus: "",
-      homeAddress: "",
-      lga: "",
-      shopAddress: "",
-      stateOrigin: "",
-      signature: null,
-      gfullName: "",
-      gphoneNumber: "",
-      gemail: "",
-      gpassport: null,
-      ghomeAddress: "",
-      gofficeAddress: "",
-      gOccupation: "",
-      gRelationship: "",
-      gSignature: null,
-      acceptedTerms: formData.acceptedTerms, // Keep the acceptedTerms value
-    });
+    // Append file inputs if they exist
+    if (formData.personal.passport) {
+      data.append("passport", formData.personal.passport);
+    }
+    if (formData.personal.signature) {
+      data.append("signature", formData.personal.signature);
+    }
+    if (formData.guarantor.guarantorPassport) {
+      data.append("guarantorPassport", formData.guarantor.guarantorPassport);
+    }
+    if (formData.guarantor.guarantorSignature) {
+      data.append("guarantorSignature", formData.guarantor.guarantorSignature);
+    }
 
-    // Show alert
-    alert("Form submitted successfully!");
+    // Send form data to the API
+    try {
+      const response = await axios.post(
+        "https://api.sentryvest.com/v1/api/create_loan",
+        data,
+        {
+          headers: {
+            "x-api-key": "30072024",
+            "Content-Type": "multipart/form-data",
+          },
+          maxBodyLength: Infinity,
+        }
+      );
 
-    // Set active section back to the first section
-    setActiveSection(0);
+      console.log("Form submitted successfully:", response.data);
+      console.log("Form Data:", formData);
+      // Show alert
+      alert("Form submitted successfully!");
+
+      // Reset all form fields to initial values except acceptedTerms
+      setFormData({
+        loanform: {
+          businessType: "",
+          loanAmount: "",
+          obtainDate: "",
+          returningDate: "",
+        },
+        personal: {
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          passport: null,
+          dob: "",
+          gender: "",
+          religion: "",
+          maritalStatus: "",
+          homeAddress: "",
+          lga: "",
+          shopAddress: "",
+          stateOrigin: "",
+          signature: null,
+        },
+        guarantor: {
+          guarantorName: "",
+          guarantorPhoneNumber: "",
+          guarantorEmailAddress: "",
+          guarantorPassport: null,
+          guarantorHomeAddress: "",
+          guarantorOccupation: "",
+          guarantorOfficeAddress: "",
+          relationshipToApplicant: "",
+          guarantorSignature: null,
+        },
+        acceptedTerms: formData.acceptedTerms, // Keep the acceptedTerms value
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error submitting form. Please try again.");
+    }
   };
 
   return (

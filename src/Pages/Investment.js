@@ -9,45 +9,55 @@ import AcceptTerms from "../Components/AcceptTerms";
 import left from "../assets/left.svg";
 import right from "../assets/right.svg";
 import investgraphic from "../assets/investgraphic.png";
+import axios from "axios";
 
 const Investment = () => {
   const [activeSection, setActiveSection] = useState(0);
 
   const [formData, setFormData] = useState({
-    amountRange: "",
-    amount: "",
-    investmentDuration: "",
-    startDate: "",
-    endDate: "",
-    relocationCountry: "",
-    receiverAddress: "",
-    title: "",
-    fullName: "",
-    phoneNumber: "",
-    email: "",
-    passport: null,
-    maritalStatus: "",
-    homeAddress: "",
-    lga: "",
-    dob: "",
-    bvn: "",
-    stateOrigin: "",
-    pob: "",
-    occupation: "",
-    dataPage: "",
-    signature: null,
-    ntitle: "",
-    nfullName: "",
-    nphoneNumber: "",
-    nemail: "",
-    noccupation: "",
-    nrelationship: "",
-    nsignature: null,
+    investmentform: {
+      amountRange: "",
+      amount: "",
+      investmentDuration: "",
+      startDate: "",
+      endDate: "",
+      relocationCountry: "",
+      receiverAddress: "",
+    },
+    personalinfo: {
+      title: "",
+      fullName: "",
+      phoneNumber: "",
+      email: "",
+      passport: null,
+      maritalStatus: "",
+      homeAddress: "",
+      lga: "",
+      dob: "",
+      bvn: "",
+      stateOrigin: "",
+      pob: "",
+      occupation: "",
+      dataPage: null,
+      signature: null,
+    },
+    nextkin: {
+      nextKinTitle: "",
+      nextKinFullName: "",
+      nextKinPhoneNumber: "",
+      nextKinEmailAddress: "",
+      nextKinOccupation: "",
+      nextKinRelationship: "",
+      nextKinSignature: null,
+    },
     acceptedTerms: false,
   });
 
-  const handleInvestmentFormChange = (data) => {
-    setFormData({ ...formData, ...data });
+  const handleInvestmentFormChange = (formName, data) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [formName]: data,
+    }));
   };
 
   const sections = [
@@ -57,8 +67,10 @@ const Investment = () => {
       icon: invest,
       component: (
         <Investmentform
-          formData={formData}
-          onFormChange={handleInvestmentFormChange}
+          formData={formData.investmentform}
+          onFormChange={(data) =>
+            handleInvestmentFormChange("investmentform", data)
+          }
         />
       ),
     },
@@ -68,8 +80,10 @@ const Investment = () => {
       icon: personal,
       component: (
         <Personalinfo
-          formData={formData}
-          onFormChange={handleInvestmentFormChange}
+          formData={formData.personalinfo}
+          onFormChange={(data) =>
+            handleInvestmentFormChange("personalinfo", data)
+          }
         />
       ),
     },
@@ -79,8 +93,8 @@ const Investment = () => {
       icon: nextkin,
       component: (
         <Nextkin
-          formData={formData}
-          onFormChange={handleInvestmentFormChange}
+          formData={formData.nextkin}
+          onFormChange={(data) => handleInvestmentFormChange("nextkin", data)}
         />
       ),
     },
@@ -103,50 +117,114 @@ const Investment = () => {
     }));
   };
 
-  const handleSubmit = () => {
-    // Handle form submission here
-    console.log("Form Data:", formData);
+  const handleSubmit = async () => {
+    // Convert formData into FormData instance
+    const data = new FormData();
+    data.append("amountRange", formData.investmentform.amountRange);
+    data.append("amount", formData.investmentform.amount);
+    data.append("duration", formData.investmentform.investmentDuration);
+    data.append("startDate", formData.investmentform.startDate);
+    data.append("endDate", formData.investmentform.endDate);
+    data.append("relocationCountry", formData.investmentform.relocationCountry);
+    data.append(
+      "referenceLetterAddress",
+      formData.investmentform.receiverAddress
+    );
+    data.append("title", formData.personalinfo.title);
+    data.append("fullName", formData.personalinfo.fullName);
+    data.append("phoneNumber", formData.personalinfo.phoneNumber);
+    data.append("emailAddress", formData.personalinfo.email);
+    data.append("maritalStatus", formData.personalinfo.maritalStatus);
+    data.append("homeAddress", formData.personalinfo.homeAddress);
+    data.append("lga", formData.personalinfo.lga);
+    data.append("dateOfBirth", formData.personalinfo.dob);
+    data.append("bvn", formData.personalinfo.bvn);
+    data.append("stateOfOrigin", formData.personalinfo.stateOrigin);
+    data.append("placeOfBirth", formData.personalinfo.pob);
+    data.append("occupation", formData.personalinfo.occupation);
+    data.append("nextOfKinTitle", formData.nextkin.nextKinTitle);
+    data.append("nextOfKinFullName", formData.nextkin.nextKinFullName);
+    data.append("nextOfKinPhoneNumber", formData.nextkin.nextKinPhoneNumber);
+    data.append("nextOfKinEmailAddress", formData.nextkin.nextKinEmailAddress);
+    data.append("nextOfKinOccupation", formData.nextkin.nextKinOccupation);
+    data.append("nextOfKinRelationship", formData.nextkin.nextKinRelationship);
 
-    // Reset all form fields to initial values except acceptedTerms
-    setFormData({
-      amountRange: "",
-      amount: "",
-      investmentDuration: "",
-      startDate: "",
-      endDate: "",
-      relocationCountry: "",
-      receiverAddress: "",
-      title: "",
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      passport: null,
-      maritalStatus: "",
-      homeAddress: "",
-      lga: "",
-      dob: "",
-      bvn: "",
-      stateOrigin: "",
-      pob: "",
-      state: "",
-      occupation: "",
-      dataPage: "",
-      signature: null,
-      ntitle: "",
-      nfullName: "",
-      nphoneNumber: "",
-      nemail: "",
-      noccupation: "",
-      nrelationship: "",
-      nsignature: null,
-      acceptedTerms: formData.acceptedTerms, // Keep the acceptedTerms value
-    });
+    // Append file inputs if they exist
+    if (formData.personalinfo.passport) {
+      data.append("passport", formData.personalinfo.passport);
+    }
+    if (formData.personalinfo.dataPage) {
+      data.append("internationalPassportPage", formData.personalinfo.dataPage);
+    }
+    if (formData.personalinfo.signature) {
+      data.append("signature", formData.personalinfo.signature);
+    }
+    if (formData.nextkin.nextKinSignature) {
+      data.append("nextOfKinSignature", formData.nextkin.nextKinSignature);
+    }
 
-    // Show alert
-    alert("Form submitted successfully!");
+    // Send form data to the API
+    try {
+      const response = await axios.post(
+        "https://api.sentryvest.com/v1/api/create_investment",
+        data,
+        {
+          headers: {
+            "x-api-key": "30072024",
+            "Content-Type": "multipart/form-data",
+          },
+          maxBodyLength: Infinity,
+        }
+      );
 
-    // Set active section back to the first section
-    setActiveSection(0);
+      console.log("Form submitted successfully:", response.data);
+      console.log("Form Data:", formData);
+      // Show alert
+      alert("Form submitted successfully!");
+
+      // Reset all form fields to initial values except acceptedTerms
+      setFormData({
+        investmentform: {
+          amountRange: "",
+          amount: "",
+          investmentDuration: "",
+          startDate: "",
+          endDate: "",
+          relocationCountry: "",
+          receiverAddress: "",
+        },
+        personalinfo: {
+          title: "",
+          fullName: "",
+          phoneNumber: "",
+          email: "",
+          passport: null,
+          maritalStatus: "",
+          homeAddress: "",
+          lga: "",
+          dob: "",
+          bvn: "",
+          stateOrigin: "",
+          pob: "",
+          occupation: "",
+          dataPage: null,
+          signature: null,
+        },
+        nextkin: {
+          nextKinTitle: "",
+          nextKinFullName: "",
+          nextKinPhoneNumber: "",
+          nextKinEmailAddress: "",
+          nextKinOccupation: "",
+          nextKinRelationship: "",
+          nextKinSignature: null,
+        },
+        acceptedTerms: formData.acceptedTerms, // Keep the acceptedTerms value
+      });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Error submitting form. Please try again.");
+    }
   };
 
   return (

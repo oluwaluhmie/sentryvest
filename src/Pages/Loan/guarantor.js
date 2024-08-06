@@ -15,14 +15,14 @@ const Guarantor = ({ formData, onFormChange }) => {
       <Formik
         initialValues={formData}
         validationSchema={Yup.object({
-          gfullName: Yup.string().required("Full name is required"),
-          gphoneNumber: Yup.string()
+          guarantorName: Yup.string().required("Full name is required"),
+          guarantorPhoneNumber: Yup.string()
             .matches(/^\d{11}$/, "Phone number must be exactly 11 digits")
             .required("Phone number is required"),
-          gemail: Yup.string()
+          guarantorEmailAddress: Yup.string()
             .email("Invalid email address")
             .required("Email is required"),
-          gpassport: Yup.mixed()
+          guarantorPassport: Yup.mixed()
             .required("Passport photograph is required")
             .test(
               "fileSize",
@@ -36,11 +36,17 @@ const Guarantor = ({ formData, onFormChange }) => {
                 !value ||
                 (value && ["image/jpeg", "image/png"].includes(value.type))
             ),
-          ghomeAddress: Yup.string().required("Home address is required"),
-          gOccupation: Yup.string().required("Occupation is required"),
-          gofficeAddress: Yup.string().required("Office address is required"),
-          gRelationship: Yup.string().required("Relationship is required"),
-          gSignature: Yup.mixed()
+          guarantorHomeAddress: Yup.string().required(
+            "Home address is required"
+          ),
+          guarantorOccupation: Yup.string().required("Occupation is required"),
+          guarantorOfficeAddress: Yup.string().required(
+            "Office address is required"
+          ),
+          relationshipToApplicant: Yup.string().required(
+            "Relationship is required"
+          ),
+          guarantorSignature: Yup.mixed()
             .required("A signature is required")
             .test(
               "fileSize",
@@ -56,7 +62,7 @@ const Guarantor = ({ formData, onFormChange }) => {
         })}
         onSubmit={(values, { resetForm }) => {
           console.log(values); // Handle form submission here
-          resetForm(); // Clear form after submission
+          onFormChange(values); // Send updated form data to parent component
         }}
       >
         {({ values, errors, setFieldValue, touched, handleChange }) => (
@@ -66,132 +72,142 @@ const Guarantor = ({ formData, onFormChange }) => {
                 <InputWithLabel
                   labelName="Full Name"
                   inputType="text"
-                  inputName="gfullName"
+                  inputName="guarantorName"
                   placeholder="Enter full name"
-                  inputValue={values.gfullName}
+                  inputValue={values.guarantorName}
                   inputOnChange={(event) => {
                     handleChange(event);
-                    onFormChange({ gfullName: event.target.value });
+                    onFormChange({ guarantorName: event.target.value });
                   }}
-                  inputError={errors.gfullName}
+                  inputError={errors.guarantorName}
                 />
                 <InputWithLabel
                   labelName="Phone Number"
                   inputType="text"
-                  inputName="gphoneNumber"
+                  inputName="guarantorPhoneNumber"
                   placeholder="Enter your phone number"
-                  inputValue={values.gphoneNumber}
+                  inputValue={values.guarantorPhoneNumber}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      gphoneNumber: event.target.value,
+                      guarantorPhoneNumber: event.target.value,
                     });
                   }}
-                  inputError={errors.gphoneNumber}
+                  inputError={errors.guarantorPhoneNumber}
                 />
               </div>
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <InputWithLabel
                   labelName="Email Address"
                   inputType="email"
-                  inputName="gemail"
+                  inputName="guarantorEmailAddress"
                   placeholder="Enter your email"
-                  inputValue={values.gemail}
+                  inputValue={values.guarantorEmailAddress}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      gemail: event.target.value,
+                      guarantorEmailAddress: event.target.value,
                     });
                   }}
-                  inputError={errors.gemail}
+                  inputError={errors.guarantorEmailAddress}
                 />
                 <FileInput
                   labelName="Passport"
                   onChange={(event) => {
-                    setFieldValue("gpassport", event.currentTarget.files[0]);
+                    setFieldValue(
+                      "guarantorPassport",
+                      event.currentTarget.files[0]
+                    );
                     onFormChange({
                       ...values,
-                      gpassport: event.currentTarget.files[0],
+                      guarantorPassport: event.currentTarget.files[0],
                     });
                   }}
-                  inputError={touched.gpassport && errors.gpassport}
+                  inputError={
+                    touched.guarantorPassport && errors.guarantorPassport
+                  }
                 />
               </div>
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <InputWithLabel
                   labelName="Occupation"
                   inputType="text"
-                  inputName="gOccupation"
+                  inputName="guarantorOccupation"
                   placeholder="Enter your occupation"
-                  inputValue={values.gOccupation}
+                  inputValue={values.guarantorOccupation}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      gOccupation: event.target.value,
+                      guarantorOccupation: event.target.value,
                     });
                   }}
-                  inputError={errors.gOccupation}
+                  inputError={errors.guarantorOccupation}
                 />
                 <InputWithLabel
                   labelName="Relationship"
                   inputType="text"
-                  inputName="gRelationship"
-                  placeholder="State your relationship"
-                  inputValue={values.gRelationship}
+                  inputName="relationshipToApplicant"
+                  placeholder="Relationship to Applicant"
+                  inputValue={values.relationshipToApplicant}
                   inputOnChange={(event) => {
                     handleChange(event);
                     onFormChange({
                       ...values,
-                      gRelationship: event.target.value,
+                      relationshipToApplicant: event.target.value,
                     });
                   }}
-                  inputError={errors.gRelationship}
+                  inputError={errors.relationshipToApplicant}
                 />
               </div>
               <InputWithLabel
                 labelName="Home Address"
                 inputType="text"
-                inputName="ghomeAddress"
+                inputName="guarantorHomeAddress"
                 placeholder="Enter your home address"
-                inputValue={values.ghomeAddress}
+                inputValue={values.guarantorHomeAddress}
                 inputOnChange={(event) => {
                   handleChange(event);
                   onFormChange({
                     ...values,
-                    ghomeAddress: event.target.value,
+                    guarantorHomeAddress: event.target.value,
                   });
                 }}
-                inputError={errors.ghomeAddress}
+                inputError={errors.guarantorHomeAddress}
               />
               <InputWithLabel
                 labelName="Office Address"
                 inputType="text"
-                inputName="gofficeAddress"
+                inputName="guarantorOfficeAddress"
                 placeholder="Enter your office address"
-                inputValue={values.gofficeAddress}
+                inputValue={values.guarantorOfficeAddress}
                 inputOnChange={(event) => {
                   handleChange(event);
                   onFormChange({
                     ...values,
-                    gofficeAddress: event.target.value,
+                    guarantorOfficeAddress: event.target.value,
                   });
                 }}
-                inputError={errors.gofficeAddress}
+                inputError={errors.guarantorOfficeAddress}
               />
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <FileInput
                   labelName="Signature"
                   onChange={(event) => {
-                    setFieldValue("gSignature", event.currentTarget.files[0]);
+                    setFieldValue(
+                      "guarantorSignature",
+                      event.currentTarget.files[0]
+                    );
                     onFormChange({
                       ...values,
-                      gSignature: event.currentTarget.files[0],
+                      guarantorSignature: event.currentTarget.files[0],
                     });
                   }}
-                  inputError={touched.gSignature && errors.gSignature}
+                  inputError={
+                    touched.guarantorSignature && errors.guarantorSignature
+                  }
                 />
               </div>
             </div>

@@ -55,8 +55,8 @@ const Investmentform = ({ formData, onFormChange }) => {
           ),
         })}
         onSubmit={(values, { resetForm }) => {
-          console.log(values); // Handle form submission here
-          resetForm(); // Clear form after submission
+          console.log(formData); // Handle form submission here
+          onFormChange(values); // Send updated form data to parent component
         }}
       >
         {({ values, errors, handleChange }) => (
@@ -163,7 +163,7 @@ const Investmentform = ({ formData, onFormChange }) => {
                   handleChange(event);
                   onFormChange({ receiverAddress: event.target.value });
                 }}
-                InputError={errors.receiverAddress}
+                inputError={errors.receiverAddress}
               />
             </div>
           </Form>
