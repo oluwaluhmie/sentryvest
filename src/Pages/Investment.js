@@ -18,7 +18,7 @@ const Investment = () => {
     investmentform: {
       amountRange: "",
       amount: "",
-      investmentDuration: "",
+      duration: "",
       startDate: "",
       endDate: "",
       relocationCountry: "",
@@ -122,7 +122,7 @@ const Investment = () => {
     const data = new FormData();
     data.append("amountRange", formData.investmentform.amountRange);
     data.append("amount", formData.investmentform.amount);
-    data.append("duration", formData.investmentform.investmentDuration);
+    data.append("duration", formData.investmentform.duration);
     data.append("startDate", formData.investmentform.startDate);
     data.append("endDate", formData.investmentform.endDate);
     data.append("relocationCountry", formData.investmentform.relocationCountry);
@@ -178,7 +178,6 @@ const Investment = () => {
       );
 
       console.log("Form submitted successfully:", response.data);
-      console.log("Form Data:", formData);
       // Show alert
       alert("Form submitted successfully!");
 
@@ -187,7 +186,7 @@ const Investment = () => {
         investmentform: {
           amountRange: "",
           amount: "",
-          investmentDuration: "",
+          duration: "",
           startDate: "",
           endDate: "",
           relocationCountry: "",

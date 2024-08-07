@@ -41,7 +41,7 @@ const LoanForm = ({ formData, onFormChange }) => {
               }
             ),
         })}
-        onSubmit={(values, { resetForm }) => {
+        onSubmit={(values) => {
           console.log(values); // Handle form submission here
           onFormChange(values); // Send updated form data to parent component
         }}

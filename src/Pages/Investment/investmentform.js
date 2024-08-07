@@ -13,7 +13,7 @@ const Investmentform = ({ formData, onFormChange }) => {
     { value: "N50M- Above", label: "N50M- Above" },
   ];
 
-  const investmentDuration = [
+  const duration = [
     { value: "6 months", label: "6 Months" },
     { value: "12 months", label: "12 Months" },
   ];
@@ -32,7 +32,7 @@ const Investmentform = ({ formData, onFormChange }) => {
           amount: Yup.number()
             .required("Investment amount is required")
             .positive("Investment amount must be a positive number"),
-          investmentDuration: Yup.string().required("Please select an option"),
+          duration: Yup.string().required("Please select an option"),
           relocationCountry: Yup.string().required(
             "Relocation Country is required"
           ),
@@ -54,12 +54,12 @@ const Investmentform = ({ formData, onFormChange }) => {
             "Receiver's Address is required"
           ),
         })}
-        onSubmit={(values, { resetForm }) => {
-          console.log(formData); // Handle form submission here
+        onSubmit={(values) => {
+          console.log(values); // Handle form submission here
           onFormChange(values); // Send updated form data to parent component
         }}
       >
-        {({ values, errors, handleChange }) => (
+        {({ values, errors, handleChange, handleBlur }) => (
           <Form className="flex flex-col">
             <div className="grid grid-cols-1 gap-8">
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
@@ -89,7 +89,7 @@ const Investmentform = ({ formData, onFormChange }) => {
                   inputValue={values.amount}
                   inputOnChange={(event) => {
                     handleChange(event);
-                    onFormChange({ amount: event.target.value });
+                    onFormChange({ ...values, amount: event.target.value });
                   }}
                   inputError={errors.amount}
                 />
@@ -97,21 +97,21 @@ const Investmentform = ({ formData, onFormChange }) => {
               <div className="grid grid-cols-1 md:grid md:grid-cols-2 gap-8">
                 <InputWithDropdown
                   labelName="Investment Duration"
-                  options={investmentDuration}
-                  selectedValue={values.investmentDuration}
+                  options={duration}
+                  selectedValue={values.duration}
                   onChange={(event) => {
                     handleChange({
                       target: {
-                        name: "investmentDuration",
+                        name: "duration",
                         value: event.target.value,
                       },
                     });
                     onFormChange({
                       ...values,
-                      investmentDuration: event.target.value,
+                      duration: event.target.value,
                     });
                   }}
-                  inputError={errors.investmentDuration}
+                  inputError={errors.duration}
                 />
                 <InputWithLabel
                   labelName="Relocation Country"
@@ -121,7 +121,10 @@ const Investmentform = ({ formData, onFormChange }) => {
                   inputValue={values.relocationCountry}
                   inputOnChange={(event) => {
                     handleChange(event);
-                    onFormChange({ relocationCountry: event.target.value });
+                    onFormChange({
+                      ...values,
+                      relocationCountry: event.target.value,
+                    });
                   }}
                   inputError={errors.relocationCountry}
                 />
@@ -134,7 +137,10 @@ const Investmentform = ({ formData, onFormChange }) => {
                   inputValue={values.startDate}
                   inputOnChange={(event) => {
                     handleChange(event);
-                    onFormChange({ ...values, startDate: event.target.value });
+                    onFormChange({
+                      ...values,
+                      startDate: event.target.value,
+                    });
                   }}
                   inputError={errors.startDate}
                 />
@@ -161,7 +167,10 @@ const Investmentform = ({ formData, onFormChange }) => {
                 inputValue={values.receiverAddress}
                 inputOnChange={(event) => {
                   handleChange(event);
-                  onFormChange({ receiverAddress: event.target.value });
+                  onFormChange({
+                    ...values,
+                    receiverAddress: event.target.value,
+                  });
                 }}
                 inputError={errors.receiverAddress}
               />

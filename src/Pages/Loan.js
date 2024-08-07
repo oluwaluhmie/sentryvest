@@ -180,7 +180,6 @@ const Loan = () => {
       );
 
       console.log("Form submitted successfully:", response.data);
-      console.log("Form Data:", formData);
       // Show alert
       alert("Form submitted successfully!");
 

@@ -91,7 +91,7 @@ const Personal = ({ formData, onFormChange }) => {
                 value && ["image/jpeg", "image/png"].includes(value.type)
             ),
         })}
-        onSubmit={(values, { resetForm }) => {
+        onSubmit={(values) => {
           console.log(values); // Handle form submission here
           onFormChange(values); // Send updated form data to parent component
         }}
