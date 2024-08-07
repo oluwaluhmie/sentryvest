@@ -9,6 +9,7 @@ import Works from "./Pages/Works";
 import ScrollToTop from "./Components/scrollToTop";
 import Loan from "./Pages/Loan";
 import Investment from "./Pages/Investment";
+import Complete from "./Pages/Complete";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
         />
         <Route path="/loan" element={<Loan />} />
         <Route path="/investment" element={<Investment />} />
+        <Route path="/complete" element={<Complete />} />
       </Routes>
     </BrowserRouter>
   );

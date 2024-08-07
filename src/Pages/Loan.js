@@ -10,6 +10,7 @@ import left from "../assets/left.svg";
 import right from "../assets/right.svg";
 import loangraphic from "../assets/loangraphic.png";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Loan = () => {
   const [activeSection, setActiveSection] = useState(0);
@@ -299,12 +300,14 @@ const Loan = () => {
                 )}
 
                 {activeSection === sections.length - 1 && (
-                  <button
-                    onClick={handleSubmit}
-                    className="flex gap-1.5 items-center bg-buttonColor text-white border border-homeColor/15 rounded-xl px-5 py-2.5 w-full justify-center shadow-button"
-                  >
-                    Submit
-                  </button>
+                  <Link to="/complete">
+                    <button
+                      onClick={handleSubmit}
+                      className="flex gap-1.5 items-center bg-buttonColor text-white border border-homeColor/15 rounded-xl px-5 py-2.5 w-full justify-center shadow-button"
+                    >
+                      Submit
+                    </button>
+                  </Link>
                 )}
               </div>
             </div>
