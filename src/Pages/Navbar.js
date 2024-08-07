@@ -165,13 +165,13 @@ const Navbar = () => {
               </div>
               <div className="pt-12">
                 <button
-                  className="text-lg bg-buttonColor text-white border-2 border-buttonColor hover:text-homeColor w-full py-4"
+                  className="text-lg bg-buttonColor text-white border-2 border-buttonColor hover:text-homeColor uppercase w-full py-4"
                   onClick={() => {
-                    scrollToSection("footerSection");
+                    scrollToSection("servicesSection");
                     setIsMenuOpen(false);
                   }}
                 >
-                  Contact us
+                  Apply Now
                 </button>
               </div>
             </div>
