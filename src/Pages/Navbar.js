@@ -87,14 +87,14 @@ const Navbar = () => {
             </div>
           </div>
           {/* Contact us Button */}
-          <div className="hidden lg:block bg-white text-homeColor border border-buttonColor hover:bg-buttonColor hover:text-white rounded-xl">
+          <div className="hidden lg:block bg-white">
             <button
-              className="text-base md:px-5 md:py-3"
+              className="text-white text-base border-2 bg-buttonColor hover:bg-homeColor hover:border-homeColor border-buttonColor rounded-xl uppercase md:px-5 md:py-3"
               onClick={() => {
-                scrollToSection("footerSection");
+                scrollToSection("servicesSection");
               }}
             >
-              Contact us
+              APPLY NOW
             </button>
           </div>
           <div className="ml-auto lg:hidden">

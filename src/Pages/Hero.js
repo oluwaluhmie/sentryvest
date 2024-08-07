@@ -1,9 +1,15 @@
 import React from "react";
 import Slider from "../Components/slider";
-import { Link } from "react-router-dom";
 import ImagesSlider from "../Components/ImagesSlider";
 
 const Hero = () => {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div
       id="heroSection"
@@ -14,11 +20,14 @@ const Hero = () => {
           <div className="flex flex-col items-start gap-8 w-full lg:w-1/2 h-100">
             <Slider />
             <div className="flex justify-center bg-white text-homeColor items-center border-2 border-buttonColor px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
-              <Link to={"/loan"}>
-                <button className="text-base">
-                  Get started
-                </button>
-              </Link>
+              <button
+                className="text-base"
+                onClick={() => {
+                  scrollToSection("servicesSection");
+                }}
+              >
+                Get started
+              </button>
             </div>
           </div>
           <div className="w-full lg:w-1/2">
