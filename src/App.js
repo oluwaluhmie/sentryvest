@@ -10,6 +10,7 @@ import ScrollToTop from "./Components/scrollToTop";
 import Loan from "./Pages/Loan";
 import Investment from "./Pages/Investment";
 import Complete from "./Pages/Complete";
+import Admin from "./Pages/Admin";
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
         <Route path="/loan" element={<Loan />} />
         <Route path="/investment" element={<Investment />} />
         <Route path="/complete" element={<Complete />} />
+        <Route path="/accesscontrol/*" element={<Admin />} />
       </Routes>
     </BrowserRouter>
   );

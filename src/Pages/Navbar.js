@@ -41,7 +41,7 @@ const Navbar = () => {
   return (
     <>
       <div
-        className={`fixed top-0 left-0 right-0 z-50 flex flex-col justify-between items-center px-4 md:px-12 lg:px-32 bg-white ${
+        className={`fixed top-0 left-0 right-0 z-50 flex flex-col justify-between items-center px-4 md:px-12 lg:px-32 bg-white shadow-bar ${
           isScrolled ? "shadow-md" : ""
         }`}
       >

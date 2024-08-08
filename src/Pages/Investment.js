@@ -3,6 +3,7 @@ import Investmentform from "./Investment/investmentform";
 import Personalinfo from "./Investment/personalinfo";
 import Nextkin from "./Investment/nextkin";
 import invest from "../assets/investicon.svg";
+import logo from "../assets/SentryVest.png";
 import personal from "../assets/personalgreen.svg";
 import nextkin from "../assets/guarantorgreen.svg";
 import AcceptTerms from "../Components/AcceptTerms";
@@ -229,6 +230,13 @@ const Investment = () => {
 
   return (
     <div className="flex flex-col items-center w-100 md:w-200 lg:w-full">
+      {/* Header */}
+      <div className="flex items-center bg-white px-5 md:px-12 lg:px-32 pt-3 w-full h-25 shadow-bar">
+        {/* Sentryvest Logo */}
+        <Link to="/">
+          <img src={logo} alt="Logo" className="w-44" />
+        </Link>
+      </div>
       <div className="flex flex-row md:justify-between px-6 md:px-12 lg:px-48 py-8 md:py-12 lg:py-15 md:h-44 lg:h-56 w-full md:w-200 lg:w-400 overflow-hidden relative">
         <span className="text-homeColor text-3xl lg:text-5xl font-bold w-67.5 md:w-70 lg:w-120 md:items-start">
           Grow Your Wealth with Confidence

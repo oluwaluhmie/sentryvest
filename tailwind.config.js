@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       boxShadow: {
         form: "0 1px 2px 0px rgba(5, 42, 60, 0.05)",
+        bar: "0 8px 16px -4px rgba(5, 42, 60, 0.08)",
         button: "0 2px 4px 0px rgba(97, 179, 15, 0.15)",
       },
       colors: {
