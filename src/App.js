@@ -11,6 +11,7 @@ import Loan from "./Pages/Loan";
 import Investment from "./Pages/Investment";
 import Complete from "./Pages/Complete";
 import Admin from "./Pages/Admin";
+import CentralAdmin from "./Pages/CentralAdmin";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/investment" element={<Investment />} />
         <Route path="/complete" element={<Complete />} />
         <Route path="/accesscontrol/*" element={<Admin />} />
+        <Route path="/adminaccess/*" element={<CentralAdmin />} />
       </Routes>
     </BrowserRouter>
   );

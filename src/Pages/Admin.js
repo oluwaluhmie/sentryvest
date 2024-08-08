@@ -19,10 +19,10 @@ const Admin = ({ onFormChange = () => {} }) => {
     const config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "https://api.canaryfinance.canarypointfcl.com/v1/api/admin_login",
+      url: "https://api.sentryvest.com/v1/api/admin_login",
       headers: {
         "Content-Type": "application/json",
-        "x-api-key": "22062024",
+        "x-api-key": "30072024",
       },
       data: data,
     };
@@ -59,12 +59,12 @@ const Admin = ({ onFormChange = () => {} }) => {
       </div>
       {/* Content */}
       <div className="flex flex-col items-center w-full py-20">
-        <div className="flex flex-col bg-white shadow-bar border border-homeColor/15 gap-12 px-12 py-12">
+        <div className="flex flex-col bg-white shadow-bar border border-homeColor/30 gap-12 px-12 py-12">
           <div className="flex flex-col gap-3">
             <span className="font-gotham text-3xl text-homeColor">
               Admin Access
             </span>
-            <p className="text-mobileMenuColor text-base">
+            <p className="text-homeColor text-sm">
               To gain administrative access, please provide your email and
               password
             </p>
@@ -116,7 +116,7 @@ const Admin = ({ onFormChange = () => {} }) => {
                   <div className="flex flex-col items-end mt-4">
                     <button
                       type="submit"
-                      className="flex items-center justify-center text-base border-2 border-menuHover text-white bg-gradient-to-b from-buttonGradient-start to-buttonGradient-end w-35.25 gap-2 h-12 hover:bg-gradient-to-b hover:from-orangeButton-start hover:to-orangeButton-end"
+                      className="flex gap-1.5 items-center justify-center bg-buttonColor text-white border border-homeColor/15 rounded-xl px-5 py-2.5 w-36 shadow-button"
                     >
                       Next
                       <img src={right} alt="right" />
