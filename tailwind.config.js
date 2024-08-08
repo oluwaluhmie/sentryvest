@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      backgroundImage: {
+        loginbg: "url(/src/assets/loginbg.png)",
+      },
       boxShadow: {
         form: "0 1px 2px 0px rgba(5, 42, 60, 0.05)",
         bar: "0 8px 16px -4px rgba(5, 42, 60, 0.08)",
@@ -43,6 +46,7 @@ module.exports = {
         1.5: "6px",
         2.5: "10px",
         15: "60px",
+        100: "400px",
       },
       rotate: {
         8.96: "8.96deg",

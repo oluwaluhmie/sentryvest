@@ -45,7 +45,7 @@ const Admin = ({ onFormChange = () => {} }) => {
   };
 
   return (
-    <div className="flex flex-col items-center bg-servicesBg h-screen">
+    <div className="flex flex-col items-center bg-loginbg bg-cover">
       {/* Header */}
       <div className="flex items-center bg-white px-5 md:px-12 lg:px-32 pt-3 w-full h-25 shadow-bar">
         {/* Sentryvest Logo */}
@@ -58,15 +58,14 @@ const Admin = ({ onFormChange = () => {} }) => {
         </Link>
       </div>
       {/* Content */}
-      <div className="flex flex-col items-center w-full py-20">
-        <div className="flex flex-col bg-white shadow-bar border border-homeColor/30 gap-12 px-12 py-12">
-          <div className="flex flex-col gap-3">
-            <span className="font-gotham text-3xl text-homeColor">
-              Admin Access
+      <div className="flex flex-col items-center w-full">
+        <div className="flex flex-col gap-8 w-300 pt-24 pb-48">
+          <div className="flex flex-col gap-2 pb-6 border-b border-homeColor/15">
+            <span className="font-gotham text-4xl text-homeColor">
+              Admin Dashboard
             </span>
-            <p className="text-homeColor text-sm">
-              To gain administrative access, please provide your email and
-              password
+            <p className="text-homeColor text-base">
+              Provide your email and password to gain access
             </p>
           </div>
           <div className="flex flex-col">
@@ -86,7 +85,7 @@ const Admin = ({ onFormChange = () => {} }) => {
               onSubmit={handleSubmit}
             >
               {({ values, errors, handleChange }) => (
-                <Form className="flex flex-col">
+                <Form className="flex flex-col gap-12 px-10 py-12 border border-homeColor/15 rounded-xl w-120">
                   <div className="grid grid-cols-1 gap-6">
                     <InputWithLabel
                       labelName="Email"
@@ -113,13 +112,12 @@ const Admin = ({ onFormChange = () => {} }) => {
                       InputError={errors.password}
                     />
                   </div>
-                  <div className="flex flex-col items-end mt-4">
+                  <div className="flex flex-col">
                     <button
                       type="submit"
-                      className="flex gap-1.5 items-center justify-center bg-buttonColor text-white border border-homeColor/15 rounded-xl px-5 py-2.5 w-36 shadow-button"
+                      className="flex gap-1.5 items-center justify-center bg-buttonColor text-white text-base border border-homeColor/15 rounded-xl px-6 py-3 w-full shadow-button"
                     >
-                      Next
-                      <img src={right} alt="right" />
+                      Login
                     </button>
                   </div>
                 </Form>
