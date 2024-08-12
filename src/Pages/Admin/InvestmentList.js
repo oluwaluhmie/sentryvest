@@ -38,9 +38,9 @@ const InvestmentList = () => {
   }, [currentPage]);
 
   return (
-    <div className="flex flex-col w-full border border-homeColor/15 rounded-xl">
+    <div className="flex flex-col w-full border border-homeColor/15 bg-white rounded-xl">
       {/* Header */}
-      <div className="flex items-center bg-white px-12 pt-3 border-b border-homeColor/15 shadow-title h-28">
+      <div className="flex items-center px-12 pt-3 border-b border-homeColor/15 shadow-title h-28">
         <p className="font-gotham text-2xl text-homeColor font-bold">
           Investment Applications
         </p>
@@ -76,7 +76,7 @@ const InvestmentList = () => {
                     .map((investment, index) => (
                       <tr
                         key={investment.id}
-                        className="flex flex-row justify-between bg-white h-16 w-full items-center text-sm text-homeColor"
+                        className="flex flex-row justify-between h-16 w-full items-center text-sm text-homeColor"
                       >
                         <td className="flex justify-center items-center w-14">
                           {index + 1}

@@ -36,9 +36,9 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="flex flex-col w-full border border-homeColor/15 rounded-xl shadow-name">
+    <div className="flex flex-col w-full border border-homeColor/15 bg-white rounded-xl shadow-name">
       {/* Header */}
-      <div className="flex items-center bg-white px-12 pt-3 border-b border-homeColor/15 shadow-title h-28">
+      <div className="flex items-center px-12 pt-3 border-b border-homeColor/15 shadow-title h-28">
         <p className="font-gotham text-2xl text-homeColor font-bold">Home</p>
       </div>
       {/* Content */}
