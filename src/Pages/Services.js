@@ -28,7 +28,7 @@ const Services = () => {
                   use the funds.
                 </p>
               </div>
-              <Link to="/loan">
+              <Link to="/applyloan">
                 <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
                   Apply now
                 </button>
@@ -48,7 +48,7 @@ const Services = () => {
                   businesses for various purposes.
                 </p>
               </div>
-              <Link to="/loan">
+              <Link to="/applyloan">
                 <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
                   Apply now
                 </button>
@@ -68,7 +68,7 @@ const Services = () => {
                   lifestyle.
                 </p>
               </div>
-              <Link to="/investment">
+              <Link to="/applyinvestment">
                 <button className="text-homeColor items-center border-2 border-homeColor border-opacity-30 px-5 py-3 hover:bg-buttonColor hover:text-white rounded-xl">
                   Apply now
                 </button>

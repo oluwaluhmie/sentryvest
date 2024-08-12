@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import InputWithLabel from "../Components/InputWithLabel";
-import right from "../assets/right.svg";
 
 const Admin = ({ onFormChange = () => {} }) => {
   const navigate = useNavigate();
@@ -115,7 +114,7 @@ const Admin = ({ onFormChange = () => {} }) => {
                   <div className="flex flex-col">
                     <button
                       type="submit"
-                      className="flex gap-1.5 items-center justify-center bg-buttonColor text-white text-base border border-homeColor/15 rounded-xl px-6 py-3 w-full shadow-button"
+                      className="flex items-center justify-center bg-buttonColor text-white text-base border border-homeColor/15 rounded-xl px-6 py-3 w-full shadow-button"
                     >
                       Login
                     </button>

@@ -32,8 +32,8 @@ function App() {
             </>
           }
         />
-        <Route path="/loan" element={<Loan />} />
-        <Route path="/investment" element={<Investment />} />
+        <Route path="/applyloan" element={<Loan />} />
+        <Route path="/applyinvestment" element={<Investment />} />
         <Route path="/complete" element={<Complete />} />
         <Route path="/accesscontrol/*" element={<Admin />} />
         <Route path="/adminaccess/*" element={<CentralAdmin />} />
