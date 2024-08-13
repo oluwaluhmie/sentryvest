@@ -239,12 +239,12 @@ const LoanPage = () => {
           </div>
         </div>
       </div>
-      {/* Guarantor's Information */}
+      {/* Guarantor Information */}
       <div className="flex flex-col border border-homeColor/15 rounded-xl bg-white shadow-name">
         <div className="flex flex-col gap-8 px-12 py-8 shadow-title">
           <div className="flex pb-4 border-b border-homeColor/15">
             <p className="text-base font-bold text-buttonColor">
-              Guarantor's Information
+              Guarantor Information
             </p>
           </div>
           <div className="flex gap-6 pb-6 border-b border-homeColor/5">
