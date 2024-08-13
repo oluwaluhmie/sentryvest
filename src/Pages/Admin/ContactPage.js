@@ -89,7 +89,7 @@ const ContactPage = () => {
             onClick={downloadPDF}
             className="flex items-center justify-center rounded-xl text-sm border border-homeColor/15 text-white bg-buttonColor w-48.75 h-12"
           >
-            Download Info
+            Download Details
           </button>
         </div>
       </div>
