@@ -40,21 +40,149 @@ const InvestmentPage = () => {
   }, [investmentId]);
 
   const downloadPDF = () => {
-    const doc = new jsPDF();
-
-    doc.text("Investment Application", 10, 10);
     if (investment) {
-      doc.setFont("times", "normal");
-      doc.setFontSize(12);
-      doc.text(`Name: ${investment.name}`, 10, 20);
-      doc.text(`Email Address: ${investment.email_address}`, 10, 30);
-      doc.text(`Phone Number: ${investment.phone_number}`, 10, 40);
-      doc.text(`Message: ${investment.message}`, 10, 50);
-    } else {
-      doc.text("Contact not found.", 10, 20);
-    }
+      const doc = new jsPDF();
+      const lineHeight = 10;
 
-    doc.save(`Contact_Form_${investment.name}.pdf`);
+      // Function to add bold text
+      const addBoldText = (text, x, y) => {
+        doc.setFont("times", "bold");
+        doc.setFontSize(12);
+        doc.text(text, x, y);
+        doc.setFont("times", "normal"); // Reset font to normal
+      };
+
+      doc.text(`Investment Application`, 10, lineHeight);
+      // Investment Details
+      addBoldText("Investment Details", 10, lineHeight + 10);
+      doc.text(`Amount Range: ${investment.amount_range}`, 10, lineHeight + 20);
+      doc.text(`Amount: ${investment.amount}`, 10, lineHeight + 30);
+      doc.text(
+        `Investment Duration: ${investment.duration}`,
+        10,
+        lineHeight + 40
+      );
+      doc.text(
+        `Relocation Country: ${investment.relocation_country}`,
+        10,
+        lineHeight + 50
+      );
+      doc.text(`Start Date: ${investment.start_date}`, 10, lineHeight + 60);
+      doc.text(`End Date: ${investment.end_date}`, 10, lineHeight + 70);
+      doc.text(
+        `Reference Letter Receiver's Address: ${investment.reference_letter_address}`,
+        10,
+        lineHeight + 80
+      );
+
+      // Personal Information
+      addBoldText("Personal Information", 10, lineHeight + 90);
+      doc.text(`Title: ${investment.title}`, 10, lineHeight + 100);
+      doc.text(`Full Name: ${investment.full_name}`, 10, lineHeight + 110);
+      doc.text(`Phone Number: ${investment.phone_number}`, 10, lineHeight + 120);
+      doc.text(
+        `Email Address: ${investment.email_address}`,
+        10,
+        lineHeight + 130
+      );
+      doc.text(`Passport: `, 10, lineHeight + 140);
+      // Create a clickable link for the passport image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view passport", 30, lineHeight + 140, {
+        url: investment.passport,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      doc.text(
+        `Marital Status: ${investment.marital_status}`,
+        10,
+        lineHeight + 150
+      );
+      doc.text(
+        `Date of Birth: ${investment.date_of_birth}`,
+        10,
+        lineHeight + 160
+      );
+      doc.text(`BVN: ${investment.bvn}`, 10, lineHeight + 170);
+      doc.text(
+        `Home Address: ${investment.home_address}`,
+        10,
+        lineHeight + 180
+      );
+      doc.text(`Local Government: ${investment.lga}`, 10, lineHeight + 190);
+      doc.text(
+        `State of Origin: ${investment.state_of_origin}`,
+        10,
+        lineHeight + 200
+      );
+      doc.text(
+        `Place of Birth: ${investment.place_of_birth}`,
+        10,
+        lineHeight + 210
+      );
+      doc.text(
+        `Occupation: ${investment.occupation}`,
+        10,
+        lineHeight + 220
+      );
+      doc.text(`Passport Data Page: `, 10, lineHeight + 230);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view international passport", 50, lineHeight + 230, {
+        url: investment.signature,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      doc.text(`Signature: `, 10, lineHeight + 240);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view signature", 30, lineHeight + 240, {
+        url: investment.signature,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      doc.addPage();
+      doc.text(`Investment Application - 1`, 10, lineHeight);
+
+      // Next of Kin Information
+      addBoldText("Guarantor Information", 10, lineHeight + 10);
+      doc.text(`Title: ${investment.next_of_kin_title}`, 10, lineHeight + 20);
+      doc.text(`Full Name: ${investment.next_of_kin_full_name}`, 10, lineHeight + 30);
+      doc.text(
+        `Phone Number: ${investment.next_of_kin_phone_number}`,
+        10,
+        lineHeight + 40
+      );
+      doc.text(
+        `Email Address: ${investment.next_of_kin_email_address}`,
+        10,
+        lineHeight + 50
+      );
+      doc.text(
+        `Occupation: ${investment.next_of_kin_occupation}`,
+        10,
+        lineHeight + 60
+      );
+      doc.text(
+        `Relationship: ${investment.next_of_kin_relationship}`,
+        10,
+        lineHeight + 70
+      );
+      doc.text(`Signature: `, 10, lineHeight + 80);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink(
+        "Click here to view Guarantor signature",
+        30,
+        lineHeight + 80,
+        {
+          url: investment.next_of_kin_signature,
+        }
+      );
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      doc.save(`Investment_Application_${investment.full_name}.pdf`);
+    }
   };
 
   if (!investment) {
@@ -342,7 +470,7 @@ const InvestmentPage = () => {
             </div>
             <div className="flex flex-col gap-2 w-80">
               <p className="text-homeColor opacity-75 text-base">
-                Relationship to Applicant:
+                Relationship:
               </p>
               <p className="text-homeColor text-base">
                 {investment.next_of_kin_relationship}

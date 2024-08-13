@@ -40,21 +40,115 @@ const LoanPage = () => {
   }, [loanId]);
 
   const downloadPDF = () => {
-    const doc = new jsPDF();
-
-    doc.text("Loan Application", 10, 10);
     if (loan) {
-      doc.setFont("times", "normal");
-      doc.setFontSize(12);
-      doc.text(`Name: ${loan.name}`, 10, 20);
-      doc.text(`Email Address: ${loan.email_address}`, 10, 30);
-      doc.text(`Phone Number: ${loan.phone_number}`, 10, 40);
-      doc.text(`Message: ${loan.message}`, 10, 50);
-    } else {
-      doc.text("Contact not found.", 10, 20);
-    }
+      const doc = new jsPDF();
+      const lineHeight = 5;
 
-    doc.save(`Contact_Form_${loan.name}.pdf`);
+      // Function to add bold text
+      const addBoldText = (text, x, y) => {
+        doc.setFont("times", "bold");
+        doc.setFontSize(12);
+        doc.text(text, x, y);
+        doc.setFont("times", "normal"); // Reset font to normal
+      };
+
+      doc.text(`Loan Application`, 10, lineHeight);
+      // Loan Details
+      addBoldText("Loan Details", 10, lineHeight + 10);
+      doc.text(`Business Type: ${loan.business_type}`, 10, lineHeight + 20);
+      doc.text(
+        `Principal Loan Amount: ${loan.principal_loan_amount}`,
+        10,
+        lineHeight + 30
+      );
+      doc.text(`Obtain Date: ${loan.obtain_date}`, 10, lineHeight + 40);
+      doc.text(`Returning Date: ${loan.returning_date}`, 10, lineHeight + 50);
+
+      // Personal Information
+      addBoldText("Personal Information", 10, lineHeight + 60);
+      doc.text(`Full Name: ${loan.name}`, 10, lineHeight + 70);
+      doc.text(`Phone Number: ${loan.phone_number}`, 10, lineHeight + 80);
+      doc.text(`Email Address: ${loan.email_address}`, 10, lineHeight + 90);
+      doc.text(`Passport: `, 10, lineHeight + 100);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view passport", 30, lineHeight + 100, {
+        url: loan.passport,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      doc.text(`Date of Birth: ${loan.date_of_birth}`, 10, lineHeight + 110);
+      doc.text(`Gender: ${loan.gender}`, 10, lineHeight + 120);
+      doc.text(`Religion: ${loan.religion}`, 10, lineHeight + 130);
+      doc.text(`Marital Status: ${loan.marital_status}`, 10, lineHeight + 140);
+      doc.text(`Home Address: ${loan.home_address}`, 10, lineHeight + 150);
+      doc.text(
+        `Local Government: ${loan.lga}`,
+        10,
+        lineHeight + 160
+      );
+      doc.text(`State of Origin: ${loan.state_of_origin}`, 10, lineHeight + 170);
+      doc.text(`Shop Address: ${loan.shop_address}`, 10, lineHeight + 180);
+      doc.text(`Signature: `, 10, lineHeight + 190);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view signature", 30, lineHeight + 190, {
+        url: loan.signature,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      // Guarantor Information
+      addBoldText("Guarantor Information", 10, lineHeight + 200);
+      doc.text(`Full Name: ${loan.guarantor_name}`, 10, lineHeight + 210);
+      doc.text(
+        `Phone Number: ${loan.guarantor_phone_number}`,
+        10,
+        lineHeight + 220
+      );
+      doc.text(
+        `Email Address: ${loan.guarantor_email_address}`,
+        10,
+        lineHeight + 230
+      );
+      doc.text(`Passport: `, 10, lineHeight + 240);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view Guarantor passport", 30, lineHeight + 240, {
+        url: loan.guarantor_passport,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+      doc.text(
+        `Occupation: ${loan.guarantor_occupation}`,
+        10,
+        lineHeight + 250
+      );
+      doc.text(
+        `Relationship: ${loan.relationship_to_applicant}`,
+        10,
+        lineHeight + 260
+      );
+      doc.text(
+        `Home Address: ${loan.guarantor_home_address}`,
+        10,
+        lineHeight + 270
+      );
+      doc.text(
+        `Shop Address: ${loan.guarantor_office_address}`,
+        10,
+        lineHeight + 280
+      );
+      doc.text(`Signature: `, 10, lineHeight + 290);
+      // Create a clickable link for the image
+      doc.setTextColor(97, 179, 71);
+      doc.textWithLink("Click here to view Guarantor signature", 30, lineHeight + 290, {
+        url: loan.guarantor_signature,
+      });
+      doc.setTextColor(0, 0, 0); // Reset color to black
+
+      doc.save(
+        `Loan_Application_${loan.name}.pdf`
+      );
+    }
   };
 
   if (!loan) {
@@ -95,13 +189,11 @@ const LoanPage = () => {
           </button>
         </div>
       </div>
-      {/* Loan Information */}
+      {/* Loan Details */}
       <div className="flex flex-col border border-homeColor/15 rounded-xl bg-white shadow-name">
         <div className="flex flex-col gap-8 px-12 py-8 shadow-title">
           <div className="flex pb-4 border-b border-homeColor/15">
-            <p className="text-base font-bold text-buttonColor">
-              Loan Information
-            </p>
+            <p className="text-base font-bold text-buttonColor">Loan Details</p>
           </div>
           <div className="flex gap-6 pb-6 border-b border-homeColor/5">
             <div className="flex flex-col gap-2 w-80">
