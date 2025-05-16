@@ -7,7 +7,6 @@ import Hero from "./Pages/Hero";
 import Navbar from "./Pages/Navbar";
 import Services from "./Pages/Services";
 import Works from "./Pages/Works";
-import ScrollToTop from "./Components/scrollToTop";
 import Loan from "./Pages/Loan";
 import Investment from "./Pages/Investment";
 import Complete from "./Pages/Complete";
@@ -41,7 +40,6 @@ function App() {
               <Works />
               <About />
               <Footer />
-              <ScrollToTop />
             </>
           }
         />
