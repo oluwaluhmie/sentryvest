@@ -18,7 +18,7 @@ module.exports = {
       colors: {
         homeColor: "#052A3C",
         servicesBg: "#F0F1F3",
-        buttonColor: "#61B347",
+        buttonColor: "#61B34F",
         textColor: "#A9A9AA",
         adminColor: "#FCFFF9",
       },
